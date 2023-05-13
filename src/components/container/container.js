@@ -10,7 +10,7 @@ export const ContainerArea = () => {
 
         <button className='container-btn'>Buy Movies</button>
 
-        <img src="https://ik.imagekit.io/qsdtqu5hp/cinemate-container-image.png?updatedAt=1684006996783" alt="cinemate-home-image" className="container-image"/>
+        <img src="https://ik.imagekit.io/qsdtqu5hp/cinemate-container-image.png?updatedAt=1684006996783" alt="cinemate-home" className="container-image"/>
         
         </div>
        
