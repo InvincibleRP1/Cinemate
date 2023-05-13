@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    background-color: black;
+    background-color: rgb(15, 15, 15);
     padding: 10px;
 }
 
@@ -25,11 +25,13 @@
 }
 
 .search-area {
+    outline: none;
     border-radius: 10px;
     width: 30%;
     height: 40px;
     margin: 10px;
     font-size: 16px;
+    /* overflow: hidden; */
 }
 
 @media (max-width: 650px)

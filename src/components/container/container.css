@@ -1,0 +1,59 @@
+:root {
+    --container-style: rgb(241, 112, 112);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: url("https://ik.imagekit.io/qsdtqu5hp/796169491973.jpg?updatedAt=1684012012237");
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    box-shadow: 3px 7px 5px rgba(0, 0, 0, 0.6);
+   height: 500px;
+    
+}
+.container-text {
+    color: aliceblue;
+    font-size: 43px;
+    margin-top: 40px;
+}
+
+.container-text > span {
+    color: var(--container-style);
+    text-transform: uppercase;
+}
+
+.container-image {
+    width: 300px;
+}
+
+.container-btn {
+    padding: 10px 12px;
+    background-color: rgb(201, 32, 32);
+    color: beige;
+    font-weight: bold;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container-btn:hover {
+    background-color: rgb(101, 9, 9);
+}
+
+
+
+@media (max-width: 850px)
+{
+    .container-text {
+        color: aliceblue;
+        font-size: 20px;
+        margin-top: 40px;
+    }
+}
