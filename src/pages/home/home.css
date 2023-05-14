@@ -1,7 +1,7 @@
 .category-section {
   font-weight: bolder;
-  background: linear-gradient(white, rgb(249, 237, 237));
-  padding: 20px;
+  background: linear-gradient(white, rgb(234, 225, 225));
+  padding-bottom: 20px;
 }
 .category-list {
   display: flex;
@@ -17,6 +17,7 @@
   border-radius: 15px;
   padding: 2rem 2rem;
   width: 20rem;
+  margin-right: 30px;
   cursor: pointer;
 }
 

@@ -1,0 +1,31 @@
+.footer-items {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(15, 15, 15);
+    color: white;
+    padding: 0.6rem;
+    gap: 1rem;
+}
+
+.footer-items > h2 {
+    color: grey;
+    font-weight: 800;
+}
+
+.footer-resources, .social-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    grid-gap: 1.5rem;
+    margin-right: 30px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.social-links-names {
+    font-size: 25px;
+}
+
+.copyright > span {
+    color: salmon;
+}

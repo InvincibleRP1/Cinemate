@@ -1,4 +1,5 @@
 import { ContainerArea } from "../../components/container/container";
+import { FooterArea } from "../../components/footer/footer";
 import { Navbar } from "../../components/navbar/navbar";
 
 import "../home/home.css";
@@ -48,6 +49,8 @@ export const HomePage = () => {
           </li>
         </ul>
       </div>
+
+      <FooterArea></FooterArea>
     </div>
   );
 };
