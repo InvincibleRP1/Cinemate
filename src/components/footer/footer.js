@@ -3,7 +3,7 @@ import "../footer/footer.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
-export const FooterArea = ({}) => {
+export const FooterArea = () => {
   return (
     <>
       <div className="footer-items">
