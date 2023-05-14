@@ -1,7 +1,7 @@
-import { ContainerArea } from "../components/container/container";
-import { Navbar } from "../components/navbar/navbar";
+import { ContainerArea } from "../../components/container/container";
+import { Navbar } from "../../components/navbar/navbar";
 
-import "./pageStylings/home.css";
+import "../home/home.css";
 
 export const HomePage = () => {
   return (
