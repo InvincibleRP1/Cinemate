@@ -3,8 +3,7 @@
     flex-direction: column;
     background-color: rgb(15, 15, 15);
     color: white;
-    padding: 0.6rem;
-    gap: 1rem;
+    padding-bottom: 0.5rem;
 }
 
 .footer-items > h2 {
