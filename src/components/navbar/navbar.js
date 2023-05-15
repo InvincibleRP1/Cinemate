@@ -1,31 +1,35 @@
 import { NavLink } from "react-router-dom";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons"; 
+import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons";
 
-import '../navbar/navbar.css'
+import "../navbar/navbar.css";
 
 export const Navbar = () => {
+  return (
+    <>
+    
+        <div className="navigation-bar">
+        <div className="navigation">
+        <NavLink className="logo" to="/">Logo</NavLink>
 
-    return (
-        <>
-             
-            <div className="navigation">
+        <input type="text" className="search-area" placeholder="Search" />
 
-            <NavLink className="logo">Logo</NavLink>
-
-            <input type="text" className="search-area" placeholder="Search"/>
-
-            <li className="right-nav">
-            <NavLink className="navbar-links">Explore</NavLink>
-            <NavLink className="navbar-links"><FontAwesomeIcon icon={faCartShopping} /></NavLink>
-            <NavLink className="navbar-links"><FontAwesomeIcon icon={faHeart} /></NavLink>
-            <NavLink className="navbar-links">Sign In</NavLink>
-            </li>
-           
-            </div>
-            
-        </>
-    )
-}
+        <li className="right-nav">
+          
+          <NavLink className="navbar-links" to="/shelf">Shelf</NavLink>
+          <NavLink className="navbar-links">
+            <FontAwesomeIcon icon={faCartShopping} />
+          </NavLink>
+          <NavLink className="navbar-links">
+            <FontAwesomeIcon icon={faHeart} />
+          </NavLink>
+          <NavLink className="navbar-links">Sign In</NavLink>
+        </li>
+      </div>
+        </div>
+      
+    </>
+  );
+};

@@ -24,7 +24,7 @@ export const FooterArea = () => {
 
         <b className="copyright">
         
-          <span>© 2023, Cinemate, Inc. </span>All rights reserved.
+        © 2023, Cinemate, Inc. <span>All rights reserved.</span>
         </b>
         
       </div>

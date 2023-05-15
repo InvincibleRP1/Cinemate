@@ -1,0 +1,128 @@
+.shelf-container {
+    display: flex;
+}
+
+/* Filters */
+
+
+.filter-area {
+    display: flex;
+    flex-direction: column;
+    
+    background-color: #f7e4c3;
+    width: 250px;
+    height: 100%;
+    padding: 1rem;
+    position: fixed;
+    left: 0;
+}
+
+.filter-heading, .prices {
+    display: flex;
+    justify-content: space-between;
+    grid-gap: 0.5rem;
+    gap: 0.5rem;
+}
+
+.filter-heading > p {
+    color: grey;
+    cursor: pointer;
+}
+
+.price-filters, .list-area {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 0.5rem;
+    gap: 0.5rem;
+}
+
+.prices {
+    display: flex;
+    justify-content: space-around;
+}
+
+input[type="range"] {
+    accent-color: rgb(163, 23, 23);
+}
+
+.categories, .ratings {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    font-size: 14px;
+    line-height: 1.6rem;
+}
+
+
+/* Products */
+
+.products-showcase {
+   /* position: relative; */
+   /* display: flex; */
+   margin-left: 18rem;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.5rem;
+}
+
+.product-item {
+    list-style: none;
+    border-radius: 10px;
+    box-shadow: 1px 4px 5px rgba(187, 138, 138, 0.9);
+    width: 12rem;
+    padding: 25px;
+}
+
+.product-image {
+    width: 100%;
+}
+
+
+/* Buttons */
+
+.show-filter {
+    display: none;
+}
+
+
+@media (max-width: 650px) 
+{
+    .filter-area {
+        background-color: antiquewhite;
+        width: 70px;
+        font-size: 12px;
+    }
+
+    .categories, .ratings {
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+        line-height: 1rem;
+        font-size: 11px;
+    }
+
+
+    .products-showcase {
+        /* display: flex; */
+        margin-left: -18rem;
+     
+     }
+
+     .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3.5rem;
+    }
+
+     .product-item {
+        list-style: none;
+        border: 1px solid brown;
+        width: 110px;
+        padding: 15px;
+        overflow: hidden;
+    }
+
+}

@@ -6,7 +6,9 @@ export const ContainerArea = () => {
         <>
         <div className="container">
         
-        <b className='container-text'>Where <span>cinema</span> meets <span>convenience</span></b>
+        <div className='container-text'>Where <span>cinema</span> meets <span>convenience</span></div>
+
+        <p className='container-details'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
 
         <button className='container-btn'>Buy Movies</button>
 
