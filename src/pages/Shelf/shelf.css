@@ -42,7 +42,7 @@
 }
 
 
-.categories, .ratings {
+.categories, .ratings, .sorting {
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -80,9 +80,6 @@
 
 /* Buttons */
 
-.show-filter {
-    display: none;
-}
 
 /* Inputs */
 
@@ -107,7 +104,7 @@ input[type='checkbox'] {
         font-size: 12px;
     }
 
-    .categories, .ratings {
+    .categories, .ratings, .sorting {
         display: flex;
         flex-direction: column;
         padding: 0px;

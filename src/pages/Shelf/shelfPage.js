@@ -71,8 +71,28 @@ export const ShelfPage = () => {
                 </div>
               </div>
             </div>
+            <div className="sorting-filters">
+              <h3>Sort By: </h3>
+              <div className="list-area">
+                <div className="sorting">
+                  <label htmlFor="">
+                    <input type="radio" name="rating" id="" />
+                    Price - Low to High
+                  </label>
+
+
+                  <label htmlFor="">
+                    <input type="radio" name="rating" id="" />
+                    Price - High to Low
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
+          
         </div>
+
+            
 
         <div className="products-showcase">
           <div className="products">
