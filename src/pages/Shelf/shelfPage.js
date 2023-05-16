@@ -9,7 +9,7 @@ import "../Shelf/shelf.css";
 import { MoviesDataContext } from "../../contexts/dataContext";
 
 export const ShelfPage = () => {
-  const { products, categories, isLoading, isError } =
+  const { products, categories, isLoading,  } =
     useContext(MoviesDataContext);
 
   console.log(products);
@@ -98,7 +98,9 @@ export const ShelfPage = () => {
           </div>
         </div>
 
-        <div className="products-showcase">
+        {isLoading && <p className="loading-sign">Loading data. Please Wait!</p>}
+
+        {!isLoading && <div className="products-showcase">
           <div className="products">
             <ul className="product-list">
               {products?.map((product) => {
@@ -135,7 +137,7 @@ export const ShelfPage = () => {
               })}
             </ul>
           </div>
-        </div>
+        </div>}
       </div>
     </>
   );
