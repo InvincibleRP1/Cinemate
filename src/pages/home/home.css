@@ -12,19 +12,24 @@
 }
 .category-item {
   list-style: none;
+  text-align: center;
   border: 1px solid rgb(178, 175, 175);
   box-shadow: 1px 2px 5px rgba(147, 33, 33, 0.8);
   border-radius: 15px;
-  padding: 2rem 2rem;
-  width: 20rem;
+  padding: 1rem 2rem;
+  width: 15rem;
   margin-right: 30px;
   cursor: pointer;
+}
+
+.category-item:hover {
+  background-color: rgb(210, 204, 204);
 }
 
 .category-image {
   /* position: relative;
   top: 5px; */
-  width: 100%;
+  width: 80%;
   overflow: hidden;
 }
 

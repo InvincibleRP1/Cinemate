@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     
-    background-color: #f7e4c3;
+    background-color: antiquewhite;
     width: 250px;
     height: 100%;
     padding: 1rem;
@@ -32,8 +32,8 @@
 .price-filters, .list-area {
     display: flex;
     flex-direction: column;
-    grid-gap: 0.5rem;
-    gap: 0.5rem;
+    grid-gap: 0.1rem;
+    gap: 0.2rem;
 }
 
 .prices {
@@ -45,9 +45,9 @@
 .categories, .ratings, .sorting {
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding: 3px;
     font-size: 14px;
-    line-height: 1.6rem;
+    line-height: 1.4rem;
 }
 
 
@@ -68,18 +68,50 @@
 .product-item {
     list-style: none;
     border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
     box-shadow: 1px 4px 5px rgba(187, 138, 138, 0.9);
     width: 12rem;
     padding: 25px;
 }
 
 .product-image {
-    width: 100%;
+    width: 80%;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 
 /* Buttons */
 
+.wishlist-btn {
+    color: rgb(203, 197, 197);
+    display: block;
+    float: right;
+    margin-top: -5px;
+    /* margin-left: -8px; */
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.wishlist-btn:hover {
+    color: rgb(226, 55, 55);
+}
+
+.cart-btn {
+    padding: 10px 12px;
+    background-color: rgb(201, 32, 32);
+    color: beige;
+    font-weight: bold;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-btn:hover {
+    background-color: rgb(101, 9, 9);
+}
 
 /* Inputs */
 
@@ -100,7 +132,10 @@ input[type='checkbox'] {
 {
     .filter-area {
         background-color: antiquewhite;
-        width: 70px;
+        width: 110px;
+        position: fixed;
+        top: 9rem;
+        bottom: 0;
         font-size: 12px;
     }
 
@@ -108,7 +143,7 @@ input[type='checkbox'] {
         display: flex;
         flex-direction: column;
         padding: 0px;
-        line-height: 1rem;
+        line-height: 0.7rem;
         font-size: 11px;
     }
 

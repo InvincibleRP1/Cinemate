@@ -1,8 +1,19 @@
+import { useContext } from "react";
 import { Navbar } from "../../components/navbar/navbar";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faHeart } from "@fortawesome/free-solid-svg-icons"; 
+
 import "../Shelf/shelf.css";
+import { MoviesDataContext } from "../../contexts/dataContext";
 
 export const ShelfPage = () => {
+  const { products, categories, isLoading, isError } =
+    useContext(MoviesDataContext);
+
+  console.log(products);
+
   return (
     <>
       <Navbar></Navbar>
@@ -31,20 +42,16 @@ export const ShelfPage = () => {
               <h3>Category</h3>
               <div className="list-area">
                 <div className="categories">
-                  <label htmlFor="">
-                    <input type="checkbox" name="category" id="" />
-                    Hollywood
-                  </label>
-
-                  <label htmlFor="">
-                    <input type="checkbox" name="category" id="" />
-                    Bollywood
-                  </label>
-
-                  <label htmlFor="">
-                    <input type="checkbox" name="category" id="" />
-                    Regional
-                  </label>
+                  {categories?.map((category) => {
+                    return (
+                      <div>
+                        <label htmlFor="">
+                          <input type="checkbox" name={category.title} id="" />
+                          {category.categoryName}
+                        </label>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -71,6 +78,7 @@ export const ShelfPage = () => {
                 </div>
               </div>
             </div>
+
             <div className="sorting-filters">
               <h3>Sort By: </h3>
               <div className="list-area">
@@ -80,7 +88,6 @@ export const ShelfPage = () => {
                     Price - Low to High
                   </label>
 
-
                   <label htmlFor="">
                     <input type="radio" name="rating" id="" />
                     Price - High to Low
@@ -89,130 +96,43 @@ export const ShelfPage = () => {
               </div>
             </div>
           </div>
-          
         </div>
-
-            
 
         <div className="products-showcase">
           <div className="products">
             <ul className="product-list">
-              <li className="product-item">
-                <div className="product-heading">Product</div>
-                <img
-                  src="https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly-logo.jpg?updatedAt=1684079038065"
-                  alt="category"
-                  className="product-image"
-                />
-                <p className="category-text">
-                  Get the latest blockbusters and cult classics from Hollywood.
-                </p>
-                <button>Buy</button>
-              </li>
+              {products?.map((product) => {
+                const { _id, title, releaseYear, price, image } = product;
 
-              <li className="product-item">
-                <div className="product-heading">Product</div>
-                <img
-                  src="https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly-logo.jpg?updatedAt=1684079038065"
-                  alt="category"
-                  className="product-image"
-                />
-                <p className="category-text">
-                  Get the latest blockbusters and cult classics from Hollywood.
-                </p>
-                <button>Buy</button>
-              </li>
+                return (
+                  <div>
+                    <li className="product-item" key={_id}>
 
-              <li className="product-item">
-                <div className="product-heading">Product</div>
-                <img
-                  src="https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly-logo.jpg?updatedAt=1684079038065"
-                  alt="category"
-                  className="product-image"
-                />
-                <p className="category-text">
-                  Get the latest blockbusters and cult classics from Hollywood.
-                </p>
-                <button>Buy</button>
-              </li>
+                    <span className="wishlist-btn"><FontAwesomeIcon icon={faHeart}/></span>
+                      <div className="product-heading">
+                        {title}
+                      </div>
+                      
+                      
+                      
+                      <img
+                        src={image}
+                        alt="category"
+                        className="product-image"
+                      />
+                      <p className="category-text">
+                        Released In: {releaseYear}
+                      </p>
+                      <p className="category-text">
+                        Price: ₹ {price}
+                      </p>
+                      <button className="cart-btn">Add To Cart</button>
 
-              <li className="product-item">
-                <div className="product-heading">Product</div>
-                <img
-                  src="https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly-logo.jpg?updatedAt=1684079038065"
-                  alt="category"
-                  className="product-image"
-                />
-                <p className="category-text">
-                  Get the latest blockbusters and cult classics from Hollywood.
-                </p>
-                <button>Buy</button>
-              </li>
-
-              <li className="product-item">
-                <div className="product-heading">Product</div>
-                <img
-                  src="https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly-logo.jpg?updatedAt=1684079038065"
-                  alt="category"
-                  className="product-image"
-                />
-                <p className="category-text">
-                  Get the latest blockbusters and cult classics from Hollywood.
-                </p>
-                <button>Buy</button>
-              </li>
-
-              <li className="product-item">
-                <div className="product-heading">Product</div>
-                <img
-                  src="https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly-logo.jpg?updatedAt=1684079038065"
-                  alt="category"
-                  className="product-image"
-                />
-                <p className="category-text">
-                  Get the latest blockbusters and cult classics from Hollywood.
-                </p>
-                <button>Buy</button>
-              </li>
-
-              <li className="product-item">
-                <div className="product-heading">Product</div>
-                <img
-                  src="https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly-logo.jpg?updatedAt=1684079038065"
-                  alt="category"
-                  className="product-image"
-                />
-                <p className="category-text">
-                  Get the latest blockbusters and cult classics from Hollywood.
-                </p>
-                <button>Buy</button>
-              </li>
-
-              <li className="product-item">
-                <div className="product-heading">Product</div>
-                <img
-                  src="https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly-logo.jpg?updatedAt=1684079038065"
-                  alt="category"
-                  className="product-image"
-                />
-                <p className="category-text">
-                  Get the latest blockbusters and cult classics from Hollywood.
-                </p>
-                <button>Buy</button>
-              </li>
-
-              <li className="product-item">
-                <div className="product-heading">Product</div>
-                <img
-                  src="https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly-logo.jpg?updatedAt=1684079038065"
-                  alt="category"
-                  className="product-image"
-                />
-                <p className="category-text">
-                  Get the latest blockbusters and cult classics from Hollywood.
-                </p>
-                <button>Buy</button>
-              </li>
+                     
+                    </li>
+                  </div>
+                );
+              })}
             </ul>
           </div>
         </div>

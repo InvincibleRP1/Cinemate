@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { ContainerArea } from "../../components/container/container";
 import { FooterArea } from "../../components/footer/footer";
 import { Navbar } from "../../components/navbar/navbar";
 
 import "../home/home.css";
+import { MoviesDataContext } from "../../contexts/dataContext";
 
 export const HomePage = () => {
+  const { categories } = useContext(MoviesDataContext);
   return (
     <div>
       <Navbar></Navbar>
@@ -12,41 +15,23 @@ export const HomePage = () => {
 
       <div className="category-section">
         <ul className="category-list">
-          <li className="category-item">
-            <div className="category-heading">Category</div>
-            <img
-              src="https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly-logo.jpg?updatedAt=1684079038065"
-              alt="category"
-              className="category-image"
-            />
-            <p className="category-text">
-            Get the latest blockbusters and cult classics from Hollywood.
-            </p>
-          </li>
+          {categories?.map((category) => {
+            const { _id, categoryName, image, description} = category;
 
-          <li className="category-item">
-            <div className="category-heading">Category</div>
+            return (
+              <li className="category-item" key={_id}>
+            <div className="category-heading">{categoryName}</div>
             <img
-              src="https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly-logo.jpg?updatedAt=1684079038065"
+              src={image}
               alt="category"
               className="category-image"
             />
             <p className="category-text">
-            Get the latest blockbusters and cult classics from Hollywood.
+            {description}
             </p>
           </li>
-
-          <li className="category-item">
-            <div className="category-heading">Category</div>
-            <img
-              src="https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly-logo.jpg?updatedAt=1684079038065"
-              alt="category"
-              className="category-image"
-            />
-            <p className="category-text">
-            Get the latest blockbusters and cult classics from Hollywood.
-            </p>
-          </li>
+            )
+          })}
         </ul>
       </div>
 

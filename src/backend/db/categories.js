@@ -7,21 +7,32 @@ import { v4 as uuid } from "uuid";
 
 export const categories = [
   {
-    _id: uuid(),
-    categoryName: "fiction",
+    _id: "abc001",
+    categoryName: "Hollywood",
+    image: "https://ik.imagekit.io/qsdtqu5hp/cinemate-images/holly.png?updatedAt=1684226202741",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "Get the latest blockbusters and cult classics from Hollywood.",
   },
   {
-    _id: uuid(),
-    categoryName: "non-fiction",
+    _id: "abc002",
+    categoryName: "Bollywood",
+    image: "https://ik.imagekit.io/qsdtqu5hp/cinemate-images/bolly.png?updatedAt=1684226202789",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "Bollywood movies that will make you dance to their tunes.",
   },
   {
-    _id: uuid(),
-    categoryName: "horror",
+    _id: "abc003",
+    categoryName: "Regional",
+    image: "https://ik.imagekit.io/qsdtqu5hp/cinemate-images/regional_films.png?updatedAt=1684226202735",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "Embrace the diversity of regional cinema with our curated collection.",
+  },
+
+  {
+    _id: "abc004",
+    categoryName: "World",
+    image: "https://ik.imagekit.io/qsdtqu5hp/cinemate-images/world_cinema.png?updatedAt=1684226202481",
+    description:
+      "Expand your horizons with the best of world cinema, now within your reach",
   },
 ];
