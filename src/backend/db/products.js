@@ -22,6 +22,7 @@ export const products = [
     genre: "Action",
     price: 850,
     category: "Hollywood",
+    rating: 4.4
   },
   {
     _id: "mva002",
@@ -39,6 +40,7 @@ export const products = [
     genre: "Sci-Fi",
     price: 270, 
     category: "Hollywood",
+    rating: 4.6
   },
   {
     _id: "mva003",
@@ -56,6 +58,7 @@ export const products = [
     genre: "Drama",
     price: 300,
     category: "Hollywood",
+    rating: 4.0
   },
   {
     _id: "mva004",
@@ -76,6 +79,7 @@ export const products = [
     genre: "Crime",
     price: 380,
     category: "Hollywood",
+    rating: 3.5
   },
   {
     _id: "mva005",
@@ -93,6 +97,7 @@ export const products = [
     genre: "Action",
     price: 250,
     category: "Hollywood",
+    rating: 4.5
   },
 
   {
@@ -110,6 +115,7 @@ export const products = [
     genre: "Romance",
     price: 340,
     category: "Bollywood",
+    rating: 3.5
   },
   {
     _id: "mva007",
@@ -126,6 +132,7 @@ export const products = [
     genre: "Comedy",
     price: 190,
     category: "Bollywood",
+    rating: 4.2
   },
   {
     _id: "mva008",
@@ -142,6 +149,7 @@ export const products = [
     genre: "Drama",
     price: 200,
     category: "Bollywood",
+    rating: 4.0
   },
   {
     _id: "mva009",
@@ -158,6 +166,7 @@ export const products = [
     genre: "Drama",
     price: 300,
     category: "Bollywood",
+    rating: 3.3
   },
   {
     _id: "mva010",
@@ -174,6 +183,7 @@ export const products = [
     genre: "Drama",
     price: 450,
     category: "Bollywood",
+    rating: 3.7
   },
 
   {
@@ -191,6 +201,7 @@ export const products = [
     genre: "Action",
     price: 800,
     category: "Regional",
+    rating: 3.4
   },
   {
     _id: "mva012",
@@ -207,6 +218,7 @@ export const products = [
     genre: "Drama",
     price: 180,
     category: "Regional",
+    rating: 3.8
   },
   {
     _id: "mva013",
@@ -223,6 +235,7 @@ export const products = [
     genre: "Crime",
     price: 380,
     category: "Regional",
+    rating: 4.0
   },
   {
     _id: "mva014",
@@ -239,6 +252,7 @@ export const products = [
     genre: "Drama",
     price: 240,
     category: "Regional",
+    rating: 4.5
   },
   {
     _id: "mva015",
@@ -254,6 +268,7 @@ export const products = [
     genre: "Drama Comedy",
     price: 350,
     category: "Regional",
+    rating: 3.6
   },
 
   {
@@ -271,6 +286,7 @@ export const products = [
     genre: "Drama",
     price: 650,
     category: "World",
+    rating: 3.5
   },
   {
     _id: "mva017",
@@ -287,6 +303,7 @@ export const products = [
     genre: "Crime",
     price: 750,
     category: "World",
+    rating: 4.8
   },
   {
     _id: "mva018",
@@ -301,8 +318,9 @@ export const products = [
     ],
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/World/sp.jpg?updatedAt=1684269966479",
     genre: "Animation",
-    price: 155,
+    price: 125,
     category: "World",
+    rating: 3.3
   },
   {
     _id: "mva019",
@@ -318,6 +336,7 @@ export const products = [
     genre: "Drama",
     price: 320,
     category: "World",
+    rating: 2.6
   },
 
   {
@@ -329,5 +348,6 @@ export const products = [
     genre: "Thriller",
     price: 265,
     category: "World",
+    rating: 4.0
   },
 ];

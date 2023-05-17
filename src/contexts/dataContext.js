@@ -8,6 +8,8 @@ export const MoviesDataHandler = ({ children }) => {
   const [state, dispatch] = useReducer(moviesReducer, initialState);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+
+
   const handleAPI = async () => {
     setIsLoading(true);
     try {
@@ -35,6 +37,56 @@ export const MoviesDataHandler = ({ children }) => {
     handleAPI();
   }, []);
 
+  const handleFilteredProducts = () =>
+  {
+    let duplicatedProducts = [...state.products];
+    
+    // Price Range
+
+    if(state.priceValue) {
+      duplicatedProducts = duplicatedProducts.filter(({price}) => state.priceValue >= price);
+    }
+
+    // Search Value
+
+    if(state.searchedValue!== "")
+    {
+      duplicatedProducts = duplicatedProducts.filter(({title}) => title.toLowerCase().includes(state.searchedValue.toLowerCase()))
+    }
+
+   // Sorting
+
+    if(state.sortValue === "lowToHigh") {
+      duplicatedProducts = duplicatedProducts.sort((a, b) => a.price - b.price);
+    }
+
+    if(state.sortValue === "highToLow") {
+      duplicatedProducts = duplicatedProducts.sort((a, b) => b.price - a.price);
+    }
+
+    // Selected Categories
+
+    if(state.currentCategory.length > 0) 
+    {
+      duplicatedProducts = duplicatedProducts.filter(({category}) => state.currentCategory.includes(category))
+    }
+    
+   // Ratings Value
+
+    if(state.ratingsValue) {
+      duplicatedProducts = duplicatedProducts.filter(({rating}) => rating >= state.ratingsValue)
+    }
+
+    // console.log(duplicatedProducts);
+    return duplicatedProducts;
+  }
+
+  const filteredProducts = handleFilteredProducts();
+
+  //console.log(state.currentCategory)
+
+  // console.log(state.searchedValue)
+
   return (
     <MoviesDataContext.Provider
       value={{
@@ -42,6 +94,9 @@ export const MoviesDataHandler = ({ children }) => {
         categories: state.categories,
         isLoading,
         isError,
+        state,
+        dispatch,
+        filteredProducts
       }}
     >
       {children}

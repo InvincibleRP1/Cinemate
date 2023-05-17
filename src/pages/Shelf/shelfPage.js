@@ -9,10 +9,41 @@ import "../Shelf/shelf.css";
 import { MoviesDataContext } from "../../contexts/dataContext";
 
 export const ShelfPage = () => {
-  const { products, categories, isLoading,  } =
+  const { categories, isLoading, state, dispatch, filteredProducts } =
     useContext(MoviesDataContext);
 
-  console.log(products);
+  // console.log(products);
+
+  const handlePriceRange = (e) => {
+
+    dispatch({type: "price-range", value: e.target.value})
+  }
+
+  const handleCurrentCategory = (currCategory) => {
+    
+    if(state.currentCategory.includes(currCategory))
+    {
+      dispatch({type: "remove-current-category", value: currCategory})
+    }
+    else {
+      dispatch({type: "assign-current-category", value: currCategory})
+    }
+  }
+  
+
+  const handleSortingType = (e) => {
+    
+    dispatch({type: "assign-sorting-value", value: e.target.value})
+  }
+
+  const handleRatingsValue = (e) => {
+  
+    dispatch({type: "assign-ratings-value", value: e.target.value})
+  }
+
+  const applyNoFilters = () => {
+    dispatch({type: "clear-filters"})
+  }
 
   return (
     <>
@@ -23,7 +54,7 @@ export const ShelfPage = () => {
           <div className="filter-area">
             <div className="filter-heading">
               <h3>Filters</h3>
-              <p>Clear</p>
+              <p onClick={applyNoFilters}>Clear</p>
             </div>
 
             <div className="price-filters">
@@ -31,10 +62,14 @@ export const ShelfPage = () => {
               <div className="list-area">
                 <div className="prices">
                   <b>150</b>
-                  <b>350</b>
+                  <b>550</b>
                   <b>900</b>
                 </div>
-                <input type="range" name="" id="" />
+                <input type="range" name="" id="" 
+                min="150"
+                max="900"
+                onChange={handlePriceRange}
+                value={state.priceValue}/>
               </div>
             </div>
 
@@ -43,11 +78,13 @@ export const ShelfPage = () => {
               <div className="list-area">
                 <div className="categories">
                   {categories?.map((category) => {
+                    const {categoryName, _id} = category;
                     return (
-                      <div>
+                      <div key = {_id}>
                         <label htmlFor="">
-                          <input type="checkbox" name={category.title} id="" />
-                          {category.categoryName}
+                          <input type="checkbox"name="category" id=""
+                          onChange={() => handleCurrentCategory(categoryName)}/>
+                          {categoryName}
                         </label>
                       </div>
                     );
@@ -61,19 +98,23 @@ export const ShelfPage = () => {
               <div className="list-area">
                 <div className="ratings">
                   <label htmlFor="">
-                    <input type="radio" name="rating" id="" />4 stars and above
+                    <input type="radio" name="rating" id="" value="4" onChange={handleRatingsValue}/>4 stars and above
                   </label>
 
                   <label htmlFor="">
-                    <input type="radio" name="rating" id="" />3 stars and above
+                    <input type="radio" name="rating" id="" value="3" onChange={handleRatingsValue}/>3 stars and above
                   </label>
 
                   <label htmlFor="">
-                    <input type="radio" name="rating" id="" />2 stars and above
+                    <input type="radio" name="rating" id="" 
+                    value="2" onChange={handleRatingsValue}/>2 stars and above
                   </label>
 
                   <label htmlFor="">
-                    <input type="radio" name="rating" id="" />1 star and above
+                    <input type="radio" name="rating" id="" 
+                    value="1"
+                    onChange={handleRatingsValue}
+                    />1 star and above
                   </label>
                 </div>
               </div>
@@ -84,12 +125,17 @@ export const ShelfPage = () => {
               <div className="list-area">
                 <div className="sorting">
                   <label htmlFor="">
-                    <input type="radio" name="rating" id="" />
+                    <input type="radio" name="sort" id="" 
+                    value="lowToHigh"
+                    onChange={handleSortingType}
+                    />
                     Price - Low to High
                   </label>
 
                   <label htmlFor="">
-                    <input type="radio" name="rating" id="" />
+                    <input type="radio" name="sort" id="" value="highToLow"
+                    onChange={handleSortingType}
+                    />
                     Price - High to Low
                   </label>
                 </div>
@@ -102,13 +148,14 @@ export const ShelfPage = () => {
 
         {!isLoading && <div className="products-showcase">
           <div className="products">
+            <p>Showing All Products: {filteredProducts.length}</p>
             <ul className="product-list">
-              {products?.map((product) => {
-                const { _id, title, releaseYear, price, image } = product;
+              {filteredProducts?.map((product) => {
+                const { _id, title, releaseYear, price, image, rating } = product;
 
                 return (
-                  <div>
-                    <li className="product-item" key={_id}>
+                  <div key={_id}>
+                    <li className="product-item" >
 
                     <span className="wishlist-btn"><FontAwesomeIcon icon={faHeart}/></span>
                       <div className="product-heading">
@@ -127,6 +174,10 @@ export const ShelfPage = () => {
                       </p>
                       <p className="category-text">
                         Price: ₹ {price}
+                      </p>
+
+                      <p className="category-text">
+                        Rating: {rating}
                       </p>
                       <button className="cart-btn">Add To Cart</button>
 

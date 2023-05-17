@@ -5,8 +5,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 import "../navbar/navbar.css";
+import { useContext } from "react";
+import { MoviesDataContext } from "../../contexts/dataContext";
 
 export const Navbar = () => {
+
+  const { dispatch } = useContext(MoviesDataContext);
+
+  const handleSearchedValue = (e) => {
+    dispatch({type: "search-value", value: e.target.value})
+  }
+
   return (
     <>
     
@@ -14,7 +23,7 @@ export const Navbar = () => {
         <div className="navigation">
         <NavLink className="logo" to="/">Logo</NavLink>
 
-        <input type="text" className="search-area" placeholder="Search" />
+        <input type="text" className="search-area" placeholder="Search" onChange={handleSearchedValue}/>
 
         <li className="right-nav">
           
