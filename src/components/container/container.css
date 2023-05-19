@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    background: url("https://ik.imagekit.io/qsdtqu5hp/796169491973.jpg?updatedAt=1684012012237");
+    background: url("/src/assets/cinemate_home.jpg");
 
     background-size: cover;
     background-repeat: no-repeat;

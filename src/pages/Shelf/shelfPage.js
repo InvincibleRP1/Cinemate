@@ -3,7 +3,7 @@ import { Navbar } from "../../components/navbar/navbar";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faHeart } from "@fortawesome/free-solid-svg-icons"; 
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 import "../Shelf/shelf.css";
 import { MoviesDataContext } from "../../contexts/dataContext";
@@ -15,35 +15,28 @@ export const ShelfPage = () => {
   // console.log(products);
 
   const handlePriceRange = (e) => {
-
-    dispatch({type: "price-range", value: e.target.value})
-  }
+    dispatch({ type: "price-range", value: e.target.value });
+  };
 
   const handleCurrentCategory = (currCategory) => {
-    
-    if(state.currentCategory.includes(currCategory))
-    {
-      dispatch({type: "remove-current-category", value: currCategory})
+    if (state.currentCategory.includes(currCategory)) {
+      dispatch({ type: "remove-current-category", value: currCategory });
+    } else {
+      dispatch({ type: "assign-current-category", value: currCategory });
     }
-    else {
-      dispatch({type: "assign-current-category", value: currCategory})
-    }
-  }
-  
+  };
 
   const handleSortingType = (e) => {
-    
-    dispatch({type: "assign-sorting-value", value: e.target.value})
-  }
+    dispatch({ type: "assign-sorting-value", value: e.target.value });
+  };
 
   const handleRatingsValue = (e) => {
-  
-    dispatch({type: "assign-ratings-value", value: e.target.value})
-  }
+    dispatch({ type: "assign-ratings-value", value: e.target.value });
+  };
 
   const applyNoFilters = () => {
-    dispatch({type: "clear-filters"})
-  }
+    dispatch({ type: "clear-filters" });
+  };
 
   return (
     <>
@@ -65,11 +58,15 @@ export const ShelfPage = () => {
                   <b>550</b>
                   <b>900</b>
                 </div>
-                <input type="range" name="" id="" 
-                min="150"
-                max="900"
-                onChange={handlePriceRange}
-                value={state.priceValue}/>
+                <input
+                  type="range"
+                  name=""
+                  id=""
+                  min="150"
+                  max="900"
+                  onChange={handlePriceRange}
+                  value={state.priceValue}
+                />
               </div>
             </div>
 
@@ -78,12 +75,17 @@ export const ShelfPage = () => {
               <div className="list-area">
                 <div className="categories">
                   {categories?.map((category) => {
-                    const {categoryName, _id} = category;
+                    const { categoryName, _id } = category;
                     return (
-                      <div key = {_id}>
+                      <div key={_id}>
                         <label htmlFor="">
-                          <input type="checkbox"name="category" id=""
-                          onChange={() => handleCurrentCategory(categoryName)}/>
+                          <input
+                            type="checkbox"
+                            name="category"
+                            id=""
+                            checked={state.currentCategory.includes(categoryName)}
+                            onChange={() => handleCurrentCategory(categoryName)}
+                          />
                           {categoryName}
                         </label>
                       </div>
@@ -98,23 +100,47 @@ export const ShelfPage = () => {
               <div className="list-area">
                 <div className="ratings">
                   <label htmlFor="">
-                    <input type="radio" name="rating" id="" value="4" onChange={handleRatingsValue}/>4 stars and above
+                    <input
+                      type="radio"
+                      name="rating"
+                      id=""
+                      value="4"
+                      onChange={handleRatingsValue}
+                    />
+                    4 stars and above
                   </label>
 
                   <label htmlFor="">
-                    <input type="radio" name="rating" id="" value="3" onChange={handleRatingsValue}/>3 stars and above
+                    <input
+                      type="radio"
+                      name="rating"
+                      id=""
+                      value="3"
+                      onChange={handleRatingsValue}
+                    />
+                    3 stars and above
                   </label>
 
                   <label htmlFor="">
-                    <input type="radio" name="rating" id="" 
-                    value="2" onChange={handleRatingsValue}/>2 stars and above
+                    <input
+                      type="radio"
+                      name="rating"
+                      id=""
+                      value="2"
+                      onChange={handleRatingsValue}
+                    />
+                    2 stars and above
                   </label>
 
                   <label htmlFor="">
-                    <input type="radio" name="rating" id="" 
-                    value="1"
-                    onChange={handleRatingsValue}
-                    />1 star and above
+                    <input
+                      type="radio"
+                      name="rating"
+                      id=""
+                      value="1"
+                      onChange={handleRatingsValue}
+                    />
+                    1 star and above
                   </label>
                 </div>
               </div>
@@ -125,16 +151,23 @@ export const ShelfPage = () => {
               <div className="list-area">
                 <div className="sorting">
                   <label htmlFor="">
-                    <input type="radio" name="sort" id="" 
-                    value="lowToHigh"
-                    onChange={handleSortingType}
+                    <input
+                      type="radio"
+                      name="sort"
+                      id=""
+                      value="lowToHigh"
+                      onChange={handleSortingType}
                     />
                     Price - Low to High
                   </label>
 
                   <label htmlFor="">
-                    <input type="radio" name="sort" id="" value="highToLow"
-                    onChange={handleSortingType}
+                    <input
+                      type="radio"
+                      name="sort"
+                      id=""
+                      value="highToLow"
+                      onChange={handleSortingType}
                     />
                     Price - High to Low
                   </label>
@@ -144,51 +177,47 @@ export const ShelfPage = () => {
           </div>
         </div>
 
-        {isLoading && <p className="loading-sign">Loading data. Please Wait!</p>}
+        {isLoading && (
+          <p className="loading-sign">Loading data. Please Wait!</p>
+        )}
 
-        {!isLoading && <div className="products-showcase">
-          <div className="products">
+        {!isLoading && (
+          <div className="products-showcase">
             <p>Showing All Products: {filteredProducts.length}</p>
-            <ul className="product-list">
-              {filteredProducts?.map((product) => {
-                const { _id, title, releaseYear, price, image, rating } = product;
+            <div className="products">
+              <ul className="product-list">
+                {filteredProducts?.map((product) => {
+                  const { _id, title, releaseYear, price, image, rating } =
+                    product;
 
-                return (
-                  <div key={_id}>
-                    <li className="product-item" >
+                  return (
+                    <div key={_id}>
+                      <li className="product-item">
+                        <span className="wishlist-btn">
+                          <FontAwesomeIcon icon={faHeart} />
+                        </span>
+                        <div className="product-heading">{title}</div>
 
-                    <span className="wishlist-btn"><FontAwesomeIcon icon={faHeart}/></span>
-                      <div className="product-heading">
-                        {title}
-                      </div>
-                      
-                      
-                      
-                      <img
-                        src={image}
-                        alt="category"
-                        className="product-image"
-                      />
-                      <p className="category-text">
-                        Released In: {releaseYear}
-                      </p>
-                      <p className="category-text">
-                        Price: ₹ {price}
-                      </p>
+                        <img
+                          src={image}
+                          alt="category"
+                          className="product-image"
+                        />
+                        <p className="category-text">
+                          Released In: {releaseYear}
+                        </p>
+                        <p className="category-text">Price: ₹ {price}</p>
 
-                      <p className="category-text">
-                        Rating: {rating}
-                      </p>
-                      <button className="cart-btn">Add To Cart</button>
-
-                     
-                    </li>
-                  </div>
-                );
-              })}
-            </ul>
+                        <p className="category-text">Rating: {rating}</p>
+                        <button className="cart-btn">Add To Cart</button>
+                      </li>
+                    </div>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
-        </div>}
+        )}
       </div>
     </>
   );
