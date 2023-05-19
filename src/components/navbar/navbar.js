@@ -16,7 +16,7 @@ export const Navbar = () => {
 
   const { state, dispatch } = useContext(MoviesDataContext);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { token,  handleSignOut } = useContext(AuthContext);
 
@@ -24,14 +24,12 @@ export const Navbar = () => {
     dispatch({type: "search-value", value: e.target.value});
   }
 
-  useEffect(() => {
-    if(state.searchedValue.length > 0)
-  {
-    navigate("/shelf");
-  }
-  }, [state.searchedValue]);
-
-
+  // useEffect(() => {
+  //   if(state.searchedValue.length > 0)
+  // {
+  //   navigate("/shelf");
+  // }
+  // }, [state.searchedValue]);
 
 
   return (
