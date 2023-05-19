@@ -14,8 +14,8 @@ export const SignInPage = () => {
     password: "",
   });
 
-  const location = useLocation();
-  const navigate = useNavigate();
+  // const location = useLocation();
+  // const navigate = useNavigate();
 
   const handlingLogIn = () => {
     if (loginDetails.email && loginDetails.password !== "") {
@@ -31,11 +31,11 @@ export const SignInPage = () => {
     }));
   };
 
-  useEffect(() => {
-    if (token) {
-      navigate(location?.state?.from?.pathname || "/shelf");
-    }
-  }, [token]);
+  // useEffect(() => {
+  //   if (token) {
+  //     navigate(location?.state?.from?.pathname || "/shelf");
+  //   }
+  // }, [token]);
 
   useEffect(() => {
     handleSignIn(loginDetails.email, loginDetails.password);
