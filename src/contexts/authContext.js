@@ -26,12 +26,15 @@ export const AuthHandler = ({ children }) => {
         );
         setToken(encodedToken);
         setCurrentUser(foundUser);
+        
       }
     } catch (error) {
       console.log(error.message);
     }
   };
 
+  console.log(token, currentUser);
+  
   const handleSignUp = async (firstName, lastName, email, password) => {
     try {
       const res = await fetch("/api/auth/signup", {
