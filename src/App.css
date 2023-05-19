@@ -4,3 +4,8 @@
   /* text-align: center; */
   font-family: 'Karla', sans-serif;
 }
+
+.test-area {
+  text-align: center;
+  margin-top: 20px;
+}

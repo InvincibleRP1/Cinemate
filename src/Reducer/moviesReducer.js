@@ -67,7 +67,7 @@ export const moviesReducer = (state, action) => {
         sortValue: "",
         priceValue: "",
         ratingsValue: "",
-        currentCategory: "",
+        currentCategory: [],
       };
 
     default:

@@ -8,7 +8,7 @@
 .filter-area {
     display: flex;
     flex-direction: column;
-    
+    border-right: 1px solid red;
     background-color: antiquewhite;
     width: 250px;
     height: 100%;
@@ -84,6 +84,11 @@
 .loading-sign {
     margin: auto;
     margin-top: 20px;
+}
+
+.products-showcase > p {
+    text-align: left;
+    margin-left: 40px;
 }
 
 /* Buttons */

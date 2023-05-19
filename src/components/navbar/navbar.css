@@ -32,14 +32,33 @@
     text-decoration: none;
 }
 
-.search-area {
-    outline: none;
-    border-radius: 10px;
+.search-bar {
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
     width: 30%;
-    height: 40px;
     margin: 10px;
+}
+
+.search-area {
+    background-color: white;
+    border: none;
+    outline: none;
+    width: 70%;
+    margin: 5px;
     font-size: 16px;
-    /* overflow: hidden; */
+}
+
+.logout-btn {
+    margin: 12px;
+    padding: 10px;
+    border-radius: 14px;
+    background-color: #c21717;
+    border: none;
+    /* background-color: white; */
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
 }
 
 @media (max-width: 650px)

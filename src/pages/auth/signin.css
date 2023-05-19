@@ -1,0 +1,89 @@
+.main-container {
+    background-color: bisque;
+    height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 5rem;
+    padding: 20px;
+    margin: auto;
+    width: 50%;
+    background-color: white;
+    box-shadow: 1px 3px 10px rgba(51, 51, 51, 0.8);
+    /* height: 100vh; */
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    width: 60%;
+}
+
+.email-input, .password-input {
+    padding: 15px;
+    outline: none;
+    margin: 7px;
+    font-size: 15px;
+}
+
+.signin-buttons {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.auth-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    width: 9rem;
+    color: white;
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
+    background-color: rgb(206, 44, 44);
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.8);
+}
+
+.auth-btn:hover {
+    background-color: rgb(150, 13, 13);
+}
+
+.signin-buttons {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 650px) {
+
+    .main-container {
+        background-color: bisque;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 1rem;
+        padding: 20px;
+        margin: auto;
+        width: 80%;
+        background-color: white;
+        box-shadow: 1px 3px 10px rgba(51, 51, 51, 0.8);
+        /* height: 100vh; */
+    }
+
+    .input-area {
+        display: flex;
+        flex-direction: column;
+        padding: 35px;
+        width: 100%;
+    }
+}
