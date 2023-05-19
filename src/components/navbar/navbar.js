@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -5,13 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faHeart, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 import "../navbar/navbar.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { MoviesDataContext } from "../../contexts/dataContext";
 import { AuthContext } from "../../contexts/authContext";
 
 export const Navbar = () => {
 
-  const [searchInput, setSearchInput] = useState("");
+  // const [searchInput, setSearchInput] = useState("");
 
   const { state, dispatch } = useContext(MoviesDataContext);
 
@@ -19,18 +20,16 @@ export const Navbar = () => {
 
   const { token,  handleSignOut } = useContext(AuthContext);
 
-  // const handleSearchedValue = (e) => {
-   
-  // }
+  const handleSearchedValue = (e) => {
+    dispatch({type: "search-value", value: e.target.value});
+  }
 
   useEffect(() => {
-    dispatch({type: "search-value", value: searchInput});
-
-    if(searchInput.length > 0)
-    {
+    if(state.searchedValue.length > 0)
+  {
     navigate("/shelf");
-    }
-  }, [searchInput]);
+  }
+  }, [state.searchedValue]);
 
 
 
@@ -47,7 +46,7 @@ export const Navbar = () => {
       <FontAwesomeIcon icon={faMagnifyingGlass} />
       <input type="text" 
         className="search-area"
-        placeholder="Search" onChange={(e) => setSearchInput(e.target.value)} />
+        placeholder="Search" onChange={handleSearchedValue} />
       </div>
      
       
