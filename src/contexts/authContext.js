@@ -55,12 +55,13 @@ export const AuthHandler = ({ children }) => {
 
   const handleSignOut = () => {
     localStorage.removeItem("signin");
-    localStorage.removeItem("signup");
+    // localStorage.removeItem("signup");
     setToken(null);
     setCurrentUser(null);
   };
 
   //   console.log(token, currentUser?.cart);
+
 
   return (
     <AuthContext.Provider
