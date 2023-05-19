@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Navbar } from "../../components/navbar/navbar";
 
@@ -33,7 +33,7 @@ export const SignUpPage = () => {
     }
   }, [token]);
 
-//   console.log(token);
+  console.log(token);
 
   return (
     <div className="main-container">
