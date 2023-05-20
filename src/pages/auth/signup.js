@@ -24,6 +24,7 @@ export const SignUpPage = () => {
     if (firstName !== "" && lastName !== "" && email !=="" && password !== "") {
       handleSignUp(firstName, lastName, email, password);
     }
+    console.log("signup button clicked")
   };
   
 
