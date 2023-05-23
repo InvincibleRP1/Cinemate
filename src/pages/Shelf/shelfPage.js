@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+
 import { Navbar } from "../../components/navbar/navbar";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,10 +9,19 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 import "../Shelf/shelf.css";
 import { MoviesDataContext } from "../../contexts/dataContext";
+// import { AuthContext } from "../../contexts/authContext";
+import { CartContext } from "../../contexts/cartContext";
+
+import { WishlistContext } from "../../contexts/wishlistContext";
 
 export const ShelfPage = () => {
   const { categories, isLoading, state, dispatch, filteredProducts } =
     useContext(MoviesDataContext);
+
+  const { handleAddToCart, itemExistsInCart } = useContext(CartContext);
+
+  const { handleAddToWishlist, isAddedToWishlist } =
+    useContext(WishlistContext);
 
   // console.log(products);
 
@@ -37,6 +48,8 @@ export const ShelfPage = () => {
   const applyNoFilters = () => {
     dispatch({ type: "clear-filters" });
   };
+
+  // console.log(currentUser?.cart);
 
   return (
     <>
@@ -83,7 +96,9 @@ export const ShelfPage = () => {
                             type="checkbox"
                             name="category"
                             id=""
-                            checked={state.currentCategory.includes(categoryName)}
+                            checked={state.currentCategory.includes(
+                              categoryName
+                            )}
                             onChange={() => handleCurrentCategory(categoryName)}
                           />
                           {categoryName}
@@ -190,10 +205,21 @@ export const ShelfPage = () => {
                   const { _id, title, releaseYear, price, image, rating } =
                     product;
 
+                  const itemPresentInCart = itemExistsInCart(product);
+
+                  const itemPresentInWishlist = isAddedToWishlist(product);
+
                   return (
                     <div key={_id}>
                       <li className="product-item">
-                        <span className="wishlist-btn">
+                        <span
+                          className={
+                            itemPresentInWishlist
+                              ? "remove-from-wishlist-btn"
+                              : "add-to-wishlist-btn"
+                          }
+                          onClick={() => handleAddToWishlist(product)}
+                        >
                           <FontAwesomeIcon icon={faHeart} />
                         </span>
                         <div className="product-heading">{title}</div>
@@ -209,7 +235,18 @@ export const ShelfPage = () => {
                         <p className="category-text">Price: ₹ {price}</p>
 
                         <p className="category-text">Rating: {rating}</p>
-                        <button className="cart-btn">Add To Cart</button>
+                        {itemPresentInCart ? (
+                          <NavLink className="cart-btn" to="/cart">
+                            Go To Cart
+                          </NavLink>
+                        ) : (
+                          <button
+                            className="cart-btn"
+                            onClick={() => handleAddToCart(product)}
+                          >
+                            Add To Cart
+                          </button>
+                        )}
                       </li>
                     </div>
                   );
