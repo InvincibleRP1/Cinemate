@@ -93,7 +93,7 @@
 
 /* Buttons */
 
-.wishlist-btn {
+.add-to-wishlist-btn {
     color: rgb(203, 197, 197);
     display: block;
     float: right;
@@ -103,7 +103,17 @@
     cursor: pointer;
 }
 
-.wishlist-btn:hover {
+.remove-from-wishlist-btn {
+    color: rgb(226, 55, 55);
+    display: block;
+    float: right;
+    margin-top: -5px;
+    /* margin-left: -8px; */
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.add-to-wishlist-btn:hover {
     color: rgb(226, 55, 55);
 }
 
@@ -116,6 +126,7 @@
     font-size: 15px;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .cart-btn:hover {

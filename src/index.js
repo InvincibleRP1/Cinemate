@@ -7,6 +7,8 @@ import App from "./App";
 import { makeServer } from "./server";
 import { MoviesDataHandler } from "./contexts/dataContext";
 import { AuthHandler } from "./contexts/authContext";
+import { CartHandler } from "./contexts/cartContext";
+import { WishlistHandler } from "./contexts/wishlistContext";
 
 // Call make Server
 makeServer();
@@ -16,7 +18,11 @@ ReactDOM.render(
     <BrowserRouter>
       <MoviesDataHandler>
         <AuthHandler>
-        <App />
+          <CartHandler>
+            <WishlistHandler>
+              <App />
+            </WishlistHandler>
+          </CartHandler>
         </AuthHandler>
       </MoviesDataHandler>
     </BrowserRouter>

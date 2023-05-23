@@ -2,12 +2,14 @@ import { createContext, useEffect, useReducer, useState } from "react";
 
 import { initialState, moviesReducer } from "../Reducer/moviesReducer";
 
+
 export const MoviesDataContext = createContext();
 
 export const MoviesDataHandler = ({ children }) => {
   const [state, dispatch] = useReducer(moviesReducer, initialState);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+
 
 
   const handleAPI = async () => {
@@ -85,7 +87,7 @@ export const MoviesDataHandler = ({ children }) => {
 
   //console.log(state.currentCategory)
 
-  // console.log(state.searchedValue)
+
 
   return (
     <MoviesDataContext.Provider
@@ -96,7 +98,8 @@ export const MoviesDataHandler = ({ children }) => {
         isError,
         state,
         dispatch,
-        filteredProducts
+        filteredProducts,
+      
       }}
     >
       {children}

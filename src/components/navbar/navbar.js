@@ -51,10 +51,10 @@ export const Navbar = () => {
         <li className="right-nav">
           
           <NavLink className="navbar-links" to="/shelf">Shelf</NavLink>
-          <NavLink className="navbar-links">
+          <NavLink className="navbar-links" to="/cart">
             <FontAwesomeIcon icon={faCartShopping} />
           </NavLink>
-          <NavLink className="navbar-links">
+          <NavLink className="navbar-links" to="/wishlist">
             <FontAwesomeIcon icon={faHeart} />
           </NavLink>
           {!token ? <NavLink className="navbar-links" to="/signin">Sign In</NavLink> : <button onClick={handleSignOut}className="logout-btn">Sign Out</button>}

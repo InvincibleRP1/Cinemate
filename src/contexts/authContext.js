@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 // import axios from "axios";
 
-export const AuthContext = createContext();
+export const AuthContext = createContext("");
 
 export const AuthHandler = ({ children }) => {
   const tokenInLocalStorage = JSON.parse(localStorage.getItem("signin"));
@@ -26,7 +26,6 @@ export const AuthHandler = ({ children }) => {
         );
         setToken(encodedToken);
         setCurrentUser(foundUser);
-        
       }
     } catch (error) {
       console.log(error.message);
@@ -34,7 +33,7 @@ export const AuthHandler = ({ children }) => {
   };
 
   console.log(token, currentUser);
-  
+
   const handleSignUp = async (firstName, lastName, email, password) => {
     try {
       const res = await fetch("/api/auth/signup", {
@@ -46,7 +45,7 @@ export const AuthHandler = ({ children }) => {
         const { createdUser, encodedToken } = await res.json();
         localStorage.setItem(
           "signup",
-          JSON.stringify({ token: encodedToken, currentUser: createdUser })
+          JSON.stringify({ token: encodedToken, user: createdUser })
         );
         setCurrentUser(createdUser);
         setToken(encodedToken);
@@ -63,12 +62,17 @@ export const AuthHandler = ({ children }) => {
     setCurrentUser(null);
   };
 
-  //   console.log(token, currentUser?.cart);
-
 
   return (
     <AuthContext.Provider
-      value={{ handleSignIn, token, currentUser, handleSignOut, handleSignUp }}
+      value={{
+        handleSignIn,
+        token,
+        currentUser,
+        setCurrentUser,
+        handleSignOut,
+        handleSignUp
+      }}
     >
       {children}
     </AuthContext.Provider>

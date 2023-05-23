@@ -1,8 +1,8 @@
 export const initialState = {
   products: [],
   categories: [],
-  cart: [],
-  wishlist: [],
+  // cart: [],
+  // wishlist: [],
   sortValue: "",
   priceValue: "",
   ratingsValue: "",
@@ -69,6 +69,16 @@ export const moviesReducer = (state, action) => {
         ratingsValue: "",
         currentCategory: [],
       };
+
+      // Adding Items to cart
+
+      // case "add-to-cart":
+      //   return {...state, cart: action.payload}
+
+      // // Removing Items from cart
+
+      // case "remove-from-cart":
+      //   return {...state, cart: action.payload}
 
     default:
       return state;
