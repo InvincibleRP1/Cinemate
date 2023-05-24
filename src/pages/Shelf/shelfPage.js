@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import { Navbar } from "../../components/navbar/navbar";
 
@@ -20,7 +20,7 @@ export const ShelfPage = () => {
 
   const { handleAddToCart, itemExistsInCart } = useContext(CartContext);
 
-  const { handleAddToWishlist, isAddedToWishlist } =
+  const { handleAddToWishlist, isAddedToWishlist, handleDeleteFromWishlist } =
     useContext(WishlistContext);
 
   // console.log(products);
@@ -50,6 +50,12 @@ export const ShelfPage = () => {
   };
 
   // console.log(currentUser?.cart);
+
+  const navigate = useNavigate();
+
+  const showProductDetail = (productId) => {
+    navigate(`/shelf/${productId}`);
+  }
 
   return (
     <>
@@ -212,27 +218,33 @@ export const ShelfPage = () => {
                   return (
                     <div key={_id}>
                       <li className="product-item">
-                        <span
-                          className={
-                            itemPresentInWishlist
-                              ? "remove-from-wishlist-btn"
-                              : "add-to-wishlist-btn"
-                          }
-                          onClick={() => handleAddToWishlist(product)}
-                        >
-                          <FontAwesomeIcon icon={faHeart} />
-                        </span>
+                        {!itemPresentInWishlist ? (
+                          <span
+                            className={"add-to-wishlist-btn"}
+                            onClick={() => handleAddToWishlist(product)}
+                          >
+                            <FontAwesomeIcon icon={faHeart} />
+                          </span>
+                        ) : (
+                          <span
+                            className={"remove-from-wishlist-btn"}
+                            onClick={() => handleDeleteFromWishlist(product)}
+                          >
+                            <FontAwesomeIcon icon={faHeart} />
+                          </span>
+                        )}
                         <div className="product-heading">{title}</div>
 
                         <img
                           src={image}
                           alt="category"
                           className="product-image"
+                          onClick={() => showProductDetail(_id)}
                         />
                         <p className="category-text">
                           Released In: {releaseYear}
                         </p>
-                        <p className="category-text">Price: ₹ {price}</p>
+                        <p className="category-text">₹ {price}</p>
 
                         <p className="category-text">Rating: {rating}</p>
                         {itemPresentInCart ? (

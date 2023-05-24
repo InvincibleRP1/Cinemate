@@ -37,11 +37,40 @@ export const WishlistHandler = ({ children }) => {
     }
   };
 
+  const handleDeleteFromWishlist = async(productToBeRemoved) => {
+
+    const itemExistsInWishlist = isAddedToWishlist(productToBeRemoved);
+
+    const productID = productToBeRemoved._id;
+
+    try {
+      if(token && itemExistsInWishlist)
+      {
+        const res = await fetch(`/api/user/wishlist/${productID}`, {
+          method: "DELETE",
+          headers: {
+            authorization: token,
+          }
+        });
+
+        const {wishlist} = await res.json();
+
+        let updatedCurrentUser = { ...currentUser, wishlist };
+        setCurrentUser(updatedCurrentUser);
+
+      }
+    } catch (error) {
+        console.log(error.message);      
+    }
+  }
+
+
   return (
     <WishlistContext.Provider
       value={{
         handleAddToWishlist,
-        isAddedToWishlist
+        isAddedToWishlist,
+        handleDeleteFromWishlist
       }}
     >
       {children}

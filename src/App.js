@@ -8,6 +8,7 @@ import { SignInPage } from './pages/auth/signin';
 import { SignUpPage } from './pages/auth/signup';
 import { CartPage } from './pages/cart/cart';
 import { WishlistPage } from './pages/wishlist/wishlist';
+import { ProductPage } from './pages/productDetails/product';
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/signup' element={<SignUpPage />}/>
         <Route path='/cart' element={<CartPage />}/>
         <Route path='/wishlist' element={<WishlistPage />}/>
+        <Route path='/shelf/:productId' element={<ProductPage />}/>
       </Routes>
     </div>
   );

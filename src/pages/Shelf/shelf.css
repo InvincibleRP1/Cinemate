@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+
 .shelf-container {
     display: flex;
 }
@@ -8,8 +10,11 @@
 .filter-area {
     display: flex;
     flex-direction: column;
-    border-right: 1px solid red;
-    background-color: antiquewhite;
+    background-color: #6c303b;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 14px;
+    font-weight: 570;
+    color: white;
     width: 250px;
     height: 100%;
     padding: 1rem;
@@ -25,7 +30,7 @@
 }
 
 .filter-heading > p {
-    color: grey;
+    color: #bfbfbf;
     cursor: pointer;
 }
 
@@ -69,16 +74,25 @@
     list-style: none;
     border-radius: 10px;
     text-align: center;
-    font-size: 15px;
-    box-shadow: 1px 4px 5px rgba(187, 138, 138, 0.9);
+    font-size: 14px;
+    box-shadow: 1px 2px 7px rgba(122, 120, 120, 0.8);
     width: 12rem;
-    padding: 25px;
+    padding: 22px;
+    height: 88%;
+    
+}
+
+.product-heading {
+    font-size: small;
+    overflow: auto;
+    margin-left: 12px;
 }
 
 .product-image {
-    width: 80%;
+    width: 65%;
     margin-top: 10px;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .loading-sign {
@@ -136,15 +150,15 @@
 /* Inputs */
 
 input[type="range"] {
-    accent-color: rgb(163, 23, 23);
+    accent-color: rgb(229 216 216);
 }
 
 input[type='radio'] {
-    accent-color: rgb(163, 23, 23);
+    accent-color: #161715;
 }
 
 input[type='checkbox'] {
-    accent-color: rgb(163, 23, 23);
+    accent-color: #161715;
 }
 
 

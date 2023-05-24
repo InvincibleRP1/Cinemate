@@ -1,19 +1,38 @@
 import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+
 
 import { AuthContext } from "../../contexts/authContext";
 import { Navbar } from "../../components/navbar/navbar";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+
 import "../cart/cart.css";
 import { CartContext } from "../../contexts/cartContext";
+import { WishlistContext } from "../../contexts/wishlistContext";
 // import { MoviesDataContext } from "../../contexts/dataContext";
 
 export const CartPage = () => {
   const { currentUser } = useContext(AuthContext);
 
-  const { cartItemsPrice, removeFromCart, handleCartQuantity } = useContext(CartContext);
+  const { cartItemsPrice, removeFromCart, handleCartQuantity } =
+    useContext(CartContext);
 
-//   const { state } = useContext(MoviesDataContext);
+  const { isAddedToWishlist, handleAddToWishlist } = useContext(WishlistContext);
+
+  //   const { state } = useContext(MoviesDataContext);
 
   const itemsInCart = currentUser?.cart;
+
+  const moveToWishlist = (product) => {
+    const itemExistsInWishlist = isAddedToWishlist(product);
+
+    if(!itemExistsInWishlist)
+    {
+      handleAddToWishlist(product);
+    }
+  }
 
   return (
     <div>
@@ -23,6 +42,8 @@ export const CartPage = () => {
         <div className="cart-card">
           {itemsInCart?.map((product) => {
             const { _id, title, price, image, category, qty } = product;
+
+            const itemExistsInWishlist = isAddedToWishlist(product);
 
             return (
               <div className="cart-items" key={_id}>
@@ -39,22 +60,40 @@ export const CartPage = () => {
                   </p>
                   <div className="cart-quantity-section">
                     <p>Quantity: </p>
-                    <button
-                    onClick={() => handleCartQuantity("INC", _id)}
-                    >+</button>
+                    <button onClick={() => handleCartQuantity("INC", _id)}>
+                      +
+                    </button>
                     <p>{qty}</p>
-                    <button 
-                    onClick={() => handleCartQuantity("DEC", _id)}
-                    disabled={qty < 2 ? true : false}>-</button>
+                    <button
+                      onClick={() => handleCartQuantity("DEC", _id)}
+                      disabled={qty < 2 ? true : false}
+                    >
+                      -
+                    </button>
                   </div>
 
-                  <div >
-                    <button className="cart-action-btns"
-                    onClick={() => removeFromCart(_id)}
-                    >Remove</button>
-                    <button className="cart-action-btns wishlist-add">Move to Wishlist</button>
+                  <div>
+                    {itemExistsInWishlist ? (
+                      <NavLink className="cart-action-btns wishlist-add"
+                      to="/wishlist"
+                      >
+                        Added in Wishlist
+                      </NavLink>
+                    ) : (
+                      <button className="cart-action-btns wishlist-move"
+                      onClick = {() => moveToWishlist(product)}
+                      >
+                        Move to Wishlist
+                      </button>
+                    )}
                   </div>
                 </div>
+
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  className="trash-btns"
+                  onClick={() => removeFromCart(_id)}
+                />
               </div>
             );
           })}
