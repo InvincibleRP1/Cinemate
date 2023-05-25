@@ -24,16 +24,16 @@ export const WishlistPage = () => {
     <div>
       <Navbar></Navbar>
       <div className="wishlist-area">
-      {WishlistData.length < 1 && <p className="empty-wishlist-text">No items in wishlist!</p>}
+      {WishlistData?.length < 1 && <p className="empty-wishlist-text">No items in wishlist!</p>}
         <ul className="wishlist-card">
 
-          {WishlistData.map((product) => {
+          {WishlistData?.map((product) => {
             const { title, image, category, price, rating } = product;
 
             const isInCart = itemExistsInCart(product);
 
             return (
-              <li>
+              <li key={title}>
                 <FontAwesomeIcon
                   icon={faTrash}
                   className="trash-btn action-btn"

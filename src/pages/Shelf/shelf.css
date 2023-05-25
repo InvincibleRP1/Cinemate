@@ -165,7 +165,8 @@ input[type='checkbox'] {
 @media (max-width: 650px) 
 {
     .filter-area {
-        background-color: antiquewhite;
+        background-color: #6c303b;
+        color: white;
         width: 110px;
         position: fixed;
         top: 9rem;
