@@ -1,4 +1,6 @@
 import { createContext, useState } from "react";
+import { toast } from "react-toastify";
+
 
 // import axios from "axios";
 
@@ -26,6 +28,7 @@ export const AuthHandler = ({ children }) => {
         );
         setToken(encodedToken);
         setCurrentUser(foundUser);
+        toast.success("Signed In")
       }
     } catch (error) {
       console.log(error.message);
@@ -49,6 +52,8 @@ export const AuthHandler = ({ children }) => {
         );
         setCurrentUser(createdUser);
         setToken(encodedToken);
+        toast.success("Signed Up")
+
       }
     } catch (error) {
       console.log(error.message);
@@ -60,6 +65,7 @@ export const AuthHandler = ({ children }) => {
     // localStorage.removeItem("signup");
     setToken(null);
     setCurrentUser(null);
+    toast.info("Signed Out")
   };
 
 

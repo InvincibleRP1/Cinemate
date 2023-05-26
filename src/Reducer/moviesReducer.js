@@ -8,12 +8,21 @@ export const initialState = {
   ratingsValue: "",
   searchedValue: "",
   currentCategory: "",
+  address: [
+    {
+      name: "Rahul Pandey",
+      phone: +918181818181,
+      pincode: 712323,
+      city: "Patna",
+      addressDetails: "4/B, Rajnagar Street",
+      state: "Bihar",
+    },
+  ],
   errorData: "",
 };
 
 export const moviesReducer = (state, action) => {
   switch (action.type) {
-
     // Initial Data load
 
     case "initial-load-products":
@@ -33,7 +42,7 @@ export const moviesReducer = (state, action) => {
     // Search Data
 
     case "search-value":
-      return {...state, searchedValue: action.value}
+      return { ...state, searchedValue: action.value };
 
     // Adding selected categories
     case "assign-current-category":
@@ -55,7 +64,6 @@ export const moviesReducer = (state, action) => {
     case "assign-sorting-value":
       return { ...state, sortValue: action.value };
 
-    
     // Adding ratings
     case "assign-ratings-value":
       return { ...state, ratingsValue: action.value };
@@ -70,15 +78,15 @@ export const moviesReducer = (state, action) => {
         currentCategory: [],
       };
 
-      // Adding Items to cart
+    // Adding Items to cart
 
-      // case "add-to-cart":
-      //   return {...state, cart: action.payload}
+    // case "add-to-cart":
+    //   return {...state, cart: action.payload}
 
-      // // Removing Items from cart
+    // // Removing Items from cart
 
-      // case "remove-from-cart":
-      //   return {...state, cart: action.payload}
+    // case "remove-from-cart":
+    //   return {...state, cart: action.payload}
 
     default:
       return state;

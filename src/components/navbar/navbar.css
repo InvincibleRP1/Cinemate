@@ -22,6 +22,10 @@
     color: aliceblue;
 }
 
+.logo > img {
+    width: 100px;
+}
+
 .right-nav {
     display: flex;
     justify-content: flex-end;

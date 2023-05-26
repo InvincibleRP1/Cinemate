@@ -26,6 +26,8 @@ export const products = [
       "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Holly/avenger.jpg?updatedAt=1684268322469",
     genre: "Action",
     price: 850,
+    runtime: 143,
+    subtitles: ["English", "Spanish"],
     category: "Hollywood",
     rating: 4.4
   },
@@ -49,6 +51,8 @@ export const products = [
       "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Holly/incep.jpg?updatedAt=1684268322464",
     genre: "Sci-Fi",
     price: 270, 
+    runtime: 148,
+    subtitles: ["English", "French"],
     category: "Hollywood",
     rating: 4.6
   },
@@ -72,6 +76,8 @@ export const products = [
       "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Holly/shawsh.jpg?updatedAt=1684268322056",
     genre: "Drama",
     price: 300,
+    runtime: 142,
+    subtitles: ["English", "French", "Swedish"],
     category: "Hollywood",
     rating: 4.0
   },
@@ -98,6 +104,8 @@ export const products = [
       "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Holly/rdogs.jpg?updatedAt=1684268322427",
     genre: "Crime",
     price: 380,
+    runtime: 99,
+    subtitles: ["English", "French"],
     category: "Hollywood",
     rating: 3.5
   },
@@ -121,6 +129,8 @@ export const products = [
       "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Holly/tdk.jpg?updatedAt=1684268322022",
     genre: "Action",
     price: 250,
+    runtime: 152,
+    subtitles: ["English", "Hindi", "Mandarin"],
     category: "Hollywood",
     rating: 4.5
   },
@@ -143,7 +153,9 @@ export const products = [
     deliveryTime: 3,
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Bolly/ddlj.jpg?updatedAt=1684268772312",
     genre: "Romance",
-    price: 340,
+    price: 440,
+    runtime: 189,
+    subtitles: ["English"],
     category: "Bollywood",
     rating: 3.5
   },
@@ -165,7 +177,9 @@ export const products = [
     deliveryTime: 6,
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Bolly/3idiots.jpg?updatedAt=1684268772560",
     genre: "Comedy",
-    price: 190,
+    price: 290,
+    runtime: 170,
+    subtitles: ["English", "Chinese"],
     category: "Bollywood",
     rating: 4.2
   },
@@ -187,7 +201,9 @@ export const products = [
     deliveryTime: 2,
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Bolly/lg.jpg?updatedAt=1684268991997",
     genre: "Drama",
-    price: 200,
+    price: 300,
+    runtime: 224,
+    subtitles: ["English"],
     category: "Bollywood",
     rating: 4.0
   },
@@ -210,6 +226,8 @@ export const products = [
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Bolly/deewar.jpg?updatedAt=1684268772337",
     genre: "Drama",
     price: 300,
+    runtime: 174,
+    subtitles: ["English"],
     category: "Bollywood",
     rating: 3.3
   },
@@ -232,6 +250,8 @@ export const products = [
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Bolly/gb.jpg?updatedAt=1684268772369",
     genre: "Drama",
     price: 450,
+    runtime: 153,
+    subtitles: ["English", "French", "German"],
     category: "Bollywood",
     rating: 3.7
   },
@@ -255,6 +275,8 @@ export const products = [
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Regional/bb1.jpg?updatedAt=1684269506237",
     genre: "Action",
     price: 800,
+    runtime: 159,
+    subtitles: ["English"],
     category: "Regional",
     rating: 3.4
   },
@@ -277,6 +299,8 @@ export const products = [
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Regional/ad.jpg?updatedAt=1684269506025",
     genre: "Drama",
     price: 180,
+    runtime: 132,
+    subtitles: ["English"],
     category: "Regional",
     rating: 3.8
   },
@@ -299,6 +323,8 @@ export const products = [
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Regional/vv.jpg?updatedAt=1684269506082",
     genre: "Crime",
     price: 380,
+    runtime: 147,
+    subtitles: ["English", "Hindi"],
     category: "Regional",
     rating: 4.0
   },
@@ -321,6 +347,8 @@ export const products = [
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Regional/sd.jpg?updatedAt=1684269506348",
     genre: "Drama",
     price: 240,
+    runtime: 176,
+    subtitles: ["English"],
     category: "Regional",
     rating: 4.5
   },
@@ -342,6 +370,8 @@ export const products = [
     image :"https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/Regional/bd.jpg?updatedAt=1684269506283",
     genre: "Drama Comedy",
     price: 350,
+    runtime: 171,
+    subtitles: ["English"],
     category: "Regional",
     rating: 3.6
   },
@@ -365,6 +395,8 @@ export const products = [
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/World/parasite.jpg?updatedAt=1684269967014",
     genre: "Drama",
     price: 650,
+    runtime: 132,
+    subtitles: ["English", "French", "Spanish"],
     category: "World",
     rating: 3.5
   },
@@ -387,6 +419,8 @@ export const products = [
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/World/the_godfather.jpg?updatedAt=1684269966672",
     genre: "Crime",
     price: 750,
+    runtime: 175,
+    subtitles: ["English", "Italian","French"],
     category: "World",
     rating: 4.8
   },
@@ -408,7 +442,9 @@ export const products = [
     deliveryTime: 4,
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/World/sp.jpg?updatedAt=1684269966479",
     genre: "Animation",
-    price: 125,
+    price: 145,
+    runtime: 125,
+    subtitles: ["English", "Japanese"],
     category: "World",
     rating: 3.3
   },
@@ -430,6 +466,8 @@ export const products = [
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/World/cog.jpg?updatedAt=1684269966978",
     genre: "Drama",
     price: 320,
+    runtime: 130,
+    subtitles: ["English"],
     category: "World",
     rating: 2.6
   },
@@ -447,6 +485,8 @@ export const products = [
     image: "https://ik.imagekit.io/qsdtqu5hp/Cinemate_Category_wise/World/mom.jpg?updatedAt=1684269966859",
     genre: "Thriller",
     price: 265,
+    runtime: 131,
+    subtitles: ["English"],
     category: "World",
     rating: 4.0
   },

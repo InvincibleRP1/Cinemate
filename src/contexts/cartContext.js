@@ -1,5 +1,10 @@
 import { createContext, useContext } from "react";
+
+import { toast } from "react-toastify";
+
 import { AuthContext } from "./authContext";
+import { useNavigate } from "react-router-dom";
+
 
 // import { MoviesDataContext } from "./dataContext";
 
@@ -7,6 +12,8 @@ export const CartContext = createContext("");
 
 export const CartHandler = ({ children }) => {
   const { currentUser, token, setCurrentUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   // const { state, dispatch } = useContext(MoviesDataContext);
 
@@ -32,6 +39,10 @@ export const CartHandler = ({ children }) => {
 
         let updatedCurrentUser = { ...currentUser, cart };
         setCurrentUser(updatedCurrentUser);
+        toast.success("Item Added To Cart")
+      }
+      else {
+        navigate("/signin");
       }
     } catch (error) {
       console.log(error.message);
@@ -62,6 +73,7 @@ export const CartHandler = ({ children }) => {
 
         let updatedCurrentUser = { ...currentUser, cart };
         setCurrentUser(updatedCurrentUser);
+        toast.error("Item removed from Cart");
 
       }
     } catch (error) {

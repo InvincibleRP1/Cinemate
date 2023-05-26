@@ -38,6 +38,8 @@ export const CartPage = () => {
     <div>
       <Navbar></Navbar>
       <p className="cart-heading">My Cart ({itemsInCart?.length})</p>
+
+      {itemsInCart.length === 0 && <p className="cart-heading">No items in cart</p>}
       <div className="cart-container">
         <div className="cart-card">
           {itemsInCart?.map((product) => {
@@ -101,7 +103,8 @@ export const CartPage = () => {
 
         {/* Price Details Area */}
 
-        <div className="cart-amount-area">
+        {
+          itemsInCart.length > 0 && <div className="cart-amount-area">
           <div className="cart-total">
             <p className="cart-price-heading">Price Details:</p>
             <ul>
@@ -136,7 +139,7 @@ export const CartPage = () => {
               <button className="checkout-btn">Checkout</button>
             </ul>
           </div>
-        </div>
+        </div>}
       </div>
     </div>
   );

@@ -1,9 +1,11 @@
 /* eslint-disable */
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faCartShopping, faHeart, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faHeart, faMagnifyingGlass, faUser } from "@fortawesome/free-solid-svg-icons";
+
+import { toast } from "react-toastify";
 
 import "../navbar/navbar.css";
 import { useContext, useEffect } from "react";
@@ -17,12 +19,15 @@ export const Navbar = () => {
   const { state, dispatch } = useContext(MoviesDataContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { token,  handleSignOut } = useContext(AuthContext);
 
   const handleSearchedValue = (e) => {
     dispatch({type: "search-value", value: e.target.value});
   }
+
+ 
 
 
 
@@ -31,7 +36,10 @@ export const Navbar = () => {
     
         <div className="navigation-bar">
         <div className="navigation">
-        <NavLink className="logo" to="/">Logo</NavLink>
+        <NavLink className="logo" to="/">
+
+          <img src="https://ik.imagekit.io/qsdtqu5hp/cinemate-logo-removebg-preview.png?updatedAt=1685091987270" alt="logo" />
+        </NavLink>
 
     
       <div className="search-bar">
@@ -53,6 +61,11 @@ export const Navbar = () => {
           <NavLink className="navbar-links" to="/wishlist">
             <FontAwesomeIcon icon={faHeart} />
           </NavLink>
+
+          <NavLink className="navbar-links" to="/user">
+            <FontAwesomeIcon icon={faUser} />
+          </NavLink>
+
           {!token ? <NavLink className="navbar-links" to="/signin">Sign In</NavLink> : <button onClick={handleSignOut}className="logout-btn">Sign Out</button>}
 
           <NavLink to="/test">API Test</NavLink>

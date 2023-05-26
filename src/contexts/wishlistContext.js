@@ -1,10 +1,16 @@
 import { createContext, useContext } from "react";
+
+import { toast } from "react-toastify";
+
 import { AuthContext } from "./authContext";
+import { useNavigate } from "react-router-dom";
 
 export const WishlistContext = createContext("");
 
 export const WishlistHandler = ({ children }) => {
   const { currentUser, token, setCurrentUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
 
   const isAddedToWishlist = (product) => {
@@ -31,6 +37,10 @@ export const WishlistHandler = ({ children }) => {
 
         let updatedCurrentUser = { ...currentUser, wishlist };
         setCurrentUser(updatedCurrentUser);
+        toast.success("Item added to Wishlist");
+      }
+      else {
+        navigate("/signin");
       }
     } catch (error) {
       console.log(error.message);
@@ -57,6 +67,8 @@ export const WishlistHandler = ({ children }) => {
 
         let updatedCurrentUser = { ...currentUser, wishlist };
         setCurrentUser(updatedCurrentUser);
+
+        toast.error("Item removed from Wishlist");
 
       }
     } catch (error) {
