@@ -54,6 +54,11 @@ export const CartHandler = ({ children }) => {
     0
   );
 
+  const cartItemsDiscount = currentUser?.cart.reduce(
+    (acc, { sellingPrice , price, qty }) => (acc += (sellingPrice * qty) - (price * qty)),
+    0
+  );
+
   const removeFromCart = async (productId) => {
     console.log(productId)
     try {
@@ -94,6 +99,8 @@ export const CartHandler = ({ children }) => {
           body: JSON.stringify({ action: { type: task === "INC" ?"increment" : "decrement"} }),
         });
 
+        
+        toast.success("Quantity of the item changed in Cart!");
 
         const { cart } = await res.json();
 
@@ -112,7 +119,8 @@ export const CartHandler = ({ children }) => {
         itemExistsInCart,
         removeFromCart,
         handleCartQuantity,
-        cartItemsPrice
+        cartItemsPrice,
+        cartItemsDiscount
       }}
     >
       {children}

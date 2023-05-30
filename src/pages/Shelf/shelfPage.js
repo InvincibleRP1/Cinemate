@@ -15,7 +15,7 @@ import { CartContext } from "../../contexts/cartContext";
 import { WishlistContext } from "../../contexts/wishlistContext";
 
 export const ShelfPage = () => {
-  const { categories, isLoading, state, dispatch, filteredProducts } =
+  const { categories, isLoading, state, dispatch, filteredProducts, ProductsAfterDiscount } =
     useContext(MoviesDataContext);
 
   const { handleAddToCart, itemExistsInCart } = useContext(CartContext);
@@ -82,7 +82,7 @@ export const ShelfPage = () => {
                   name=""
                   id=""
                   min="150"
-                  max="900"
+                  max="1300"
                   onChange={handlePriceRange}
                   value={state.priceValue}
                 />
@@ -208,7 +208,7 @@ export const ShelfPage = () => {
             <div className="products">
               <ul className="product-list">
                 {filteredProducts?.map((product) => {
-                  const { _id, title, releaseYear, price, image, rating } =
+                  const { _id, title, releaseYear, sellingPrice, price, image, rating } =
                     product;
 
                   const itemPresentInCart = itemExistsInCart(product);
@@ -244,7 +244,10 @@ export const ShelfPage = () => {
                         <p className="category-text">
                           Released In: {releaseYear}
                         </p>
-                        <p className="category-text">₹ {price}</p>
+
+                        <p className="category-text">₹ {sellingPrice}</p>
+
+                        <p className="category-text original-price">₹ {price}</p>
 
                         <p className="category-text">Rating: {rating}</p>
                         {itemPresentInCart ? (

@@ -14,6 +14,7 @@ import { WishlistPage } from "./pages/wishlist/wishlist";
 import { ProductPage } from "./pages/productDetails/product";
 import { PrivateRoute } from "./components/privateRoute/privateRoute";
 import { UserProfile } from "./pages/userProfile/user";
+import { CheckoutPage } from "./pages/checkout/checkout";
 
 function App() {
   return (
@@ -57,6 +58,15 @@ function App() {
           element={
             <PrivateRoute>
               <UserProfile />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+              <CheckoutPage />
             </PrivateRoute>
           }
         />

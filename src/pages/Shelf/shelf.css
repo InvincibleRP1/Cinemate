@@ -105,6 +105,11 @@
     margin-left: 40px;
 }
 
+.original-price {
+    color: rgb(152, 149, 149);
+    text-decoration: line-through;
+}
+
 /* Buttons */
 
 .add-to-wishlist-btn {

@@ -16,7 +16,7 @@ import { WishlistContext } from "../../contexts/wishlistContext";
 export const CartPage = () => {
   const { currentUser } = useContext(AuthContext);
 
-  const { cartItemsPrice, removeFromCart, handleCartQuantity } =
+  const { cartItemsPrice, removeFromCart, handleCartQuantity, cartItemsDiscount } =
     useContext(CartContext);
 
   const { isAddedToWishlist, handleAddToWishlist } = useContext(WishlistContext);
@@ -43,7 +43,7 @@ export const CartPage = () => {
       <div className="cart-container">
         <div className="cart-card">
           {itemsInCart?.map((product) => {
-            const { _id, title, price, image, category, qty } = product;
+            const { _id, title, sellingPrice, price, image, category, qty } = product;
 
             const itemExistsInWishlist = isAddedToWishlist(product);
 
@@ -58,7 +58,7 @@ export const CartPage = () => {
                     {category}
                   </p>
                   <p>
-                    <b>Price: </b>₹ {price}
+                    <b>Price: </b>₹ {sellingPrice} <span className="original-price">₹{price}</span>
                   </p>
                   <div className="cart-quantity-section">
                     <p>Quantity: </p>
@@ -117,26 +117,28 @@ export const CartPage = () => {
               <li>
                 <p>Discount :</p>
 
-                <p>- to be added</p>
+                <p><span className="discounted-price">  {cartItemsDiscount} ₹ </span></p>
               </li>
 
               <li>
                 <p>Delivery Charges :</p>
 
-                <p>- Free Delivery!</p>
+                <p className="discounted-price">- Free Delivery!</p>
               </li>
 
               <hr />
 
-              <li>
+              <li className="total-amt">
                 <p>Total Price :</p>
 
-                <p>to be added</p>
+                <p>₹ {cartItemsPrice + cartItemsDiscount}</p>
               </li>
 
               <hr />
 
-              <button className="checkout-btn">Checkout</button>
+              <NavLink className="checkout-btn"
+              to="/checkout"
+              >Checkout</NavLink>
             </ul>
           </div>
         </div>}

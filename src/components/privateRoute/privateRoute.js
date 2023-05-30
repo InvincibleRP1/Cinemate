@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
+import { toast } from "react-toastify";
 
 
 export function PrivateRoute({ children }) {
@@ -8,5 +9,16 @@ export function PrivateRoute({ children }) {
 
   const location = useLocation();
   
-  return token ? children : <Navigate to="/signin" state={{ from: location?.pathname }} />;
+  // return token ? children : <Navigate to="/signin" state={{ from: location?.pathname }} />;
+
+  if(token) {
+    return children;
+  }
+
+  else {
+    toast.warning("Please Sign In!");
+    return (
+      <Navigate to="/signin" state={{ from: location?.pathname }} />
+    )
+  }
 }

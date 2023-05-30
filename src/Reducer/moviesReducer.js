@@ -1,3 +1,5 @@
+import { v4 as uuid } from "uuid";
+
 export const initialState = {
   products: [],
   categories: [],
@@ -10,12 +12,13 @@ export const initialState = {
   currentCategory: "",
   address: [
     {
+      _id: "add1",
       name: "Rahul Pandey",
       phone: +918181818181,
       pincode: 712323,
       city: "Patna",
       addressDetails: "4/B, Rajnagar Street",
-      state: "Bihar",
+      stateOfAddress: "Bihar",
     },
   ],
   errorData: "",
@@ -78,15 +81,20 @@ export const moviesReducer = (state, action) => {
         currentCategory: [],
       };
 
-    // Adding Items to cart
+    // Adding new Address
 
-    // case "add-to-cart":
-    //   return {...state, cart: action.payload}
+    case "add-new-address":
+      return {...state, address: [...state.address, {...action.payload, _id: uuid()}]}
 
-    // // Removing Items from cart
+    // Delete address
 
-    // case "remove-from-cart":
-    //   return {...state, cart: action.payload}
+    // Update an existing address
+  case "edit-address":
+  return { ...state, address: action.payload };
+
+
+    case "delete-address":
+      return {...state, address: action.payload}
 
     default:
       return state;

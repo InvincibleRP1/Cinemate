@@ -14,9 +14,10 @@ import { WishlistContext } from "../../contexts/wishlistContext";
 export const WishlistPage = () => {
   const { currentUser, token } = useContext(AuthContext);
 
-  const { itemExistsInCart, handleAddToCart, handleCartQuantity} = useContext(CartContext);
+  const { itemExistsInCart, handleAddToCart, handleCartQuantity } =
+    useContext(CartContext);
 
-  const {handleDeleteFromWishlist} = useContext(WishlistContext);
+  const { handleDeleteFromWishlist } = useContext(WishlistContext);
 
   const WishlistData = currentUser?.wishlist;
 
@@ -24,13 +25,16 @@ export const WishlistPage = () => {
     <div>
       <Navbar></Navbar>
       <div className="wishlist-area">
-      {WishlistData?.length < 1 && <p className="empty-wishlist-text">No items in wishlist!</p>}
+        {WishlistData?.length < 1 && (
+          <p className="empty-wishlist-text">No items in wishlist!</p>
+        )}
         <ul className="wishlist-card">
-
           {WishlistData?.map((product) => {
-            const { title, image, category, price, rating } = product;
+            const { title, image, category, price, sellingPrice, rating } = product;
 
             const isInCart = itemExistsInCart(product);
+
+            console.log(isInCart)
 
             return (
               <li key={title}>
@@ -46,28 +50,25 @@ export const WishlistPage = () => {
                   Category: <span>{category}</span>
                 </p>
                 <p>
-                  Price: <span>₹ {price}</span>
+                  Price: <span>₹ {sellingPrice}</span> <span className="original-price">₹ {price}</span>
                 </p>
                 <p>
                   Rating: <span>{rating}</span>
                 </p>
 
                 <div className="wishlist-btn-area">
-                  {isInCart ? (
-                    <NavLink className="cart-determine-btn" to="/cart">
-                      Added To Cart
-                    </NavLink>
-                  ) : (
-                    <button className="move-to-cart-btn action-btn" 
-                    onClick={isInCart ? () => handleCartQuantity("INC", product) :
-                
-                    () => handleAddToCart(product)
-                    }
-                    
+                  {
+                    <button
+                      className="move-to-cart-btn action-btn"
+                      onClick={
+                        isInCart
+                          ? () => handleCartQuantity("INC", product._id)
+                          : () => handleAddToCart(product)
+                      }
                     >
                       Move To Cart
                     </button>
-                  )}
+                  }
                 </div>
               </li>
             );

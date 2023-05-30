@@ -3,6 +3,7 @@ import { createContext, useEffect, useReducer, useState } from "react";
 import { initialState, moviesReducer } from "../Reducer/moviesReducer";
 
 
+
 export const MoviesDataContext = createContext();
 
 export const MoviesDataHandler = ({ children }) => {
@@ -18,7 +19,9 @@ export const MoviesDataHandler = ({ children }) => {
       const response = await fetch("/api/products");
       const {products} = await response.json();
 
-      dispatch({ type: "initial-load-products", products: products })
+      const ProductsAfterDiscount = products.map((product) => ({...product, sellingPrice: Math.round(product.price * ((100 - product.discount) /100 ))}))
+
+      dispatch({ type: "initial-load-products", products: ProductsAfterDiscount })
       // console.log(products);
 
       const res = await fetch("/api/categories");
