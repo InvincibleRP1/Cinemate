@@ -5,7 +5,7 @@ import { faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-ic
 
 export const FooterArea = () => {
   return (
-    <>
+    <div className="footer-area">
       <div className="footer-items">
         <h2>Cinemate</h2>
 
@@ -28,6 +28,6 @@ export const FooterArea = () => {
         </b>
         
       </div>
-    </>
+    </div>
   );
 };

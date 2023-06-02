@@ -1,20 +1,18 @@
 import { useContext, useState } from "react";
-import { Navbar } from "../../components/navbar/navbar";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { faAdd } from "@fortawesome/free-solid-svg-icons";
 
+import { Navbar } from "../../components/navbar/navbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AuthContext } from "../../contexts/authContext";
-
 import "../userProfile/user.css";
 import { MoviesDataContext } from "../../contexts/dataContext";
+import { FormData } from "./formData";
+import { FooterArea } from "../../components/footer/footer";
 
 export const UserProfile = () => {
   const [tabSelected, setTabSelected] = useState("user-details");
-
   const [formMode, setFormMode] = useState("Add");
-
+  const [formAccess, setFormAccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: null,
@@ -25,15 +23,12 @@ export const UserProfile = () => {
   });
 
   const { currentUser } = useContext(AuthContext);
-
   const { state, dispatch } = useContext(MoviesDataContext);
-
   const { firstName, lastName, email } = currentUser;
 
-  // console.log(state.address);
-
   const addNewAddress = () => {
-    setFormMode("Add");
+    setFormMode("add");
+    setFormAccess(true);
     setFormData(() => ({
       name: "",
       phone: null,
@@ -45,6 +40,7 @@ export const UserProfile = () => {
   };
 
   const handleAddressTab = () => {
+    setFormAccess(false);
     setTabSelected("address-details");
     setFormMode("details");
   };
@@ -68,16 +64,16 @@ export const UserProfile = () => {
     }
 
     setFormMode("details");
+    setFormAccess(false);
   };
 
   const handleEditingAddress = (addressId) => {
     setFormMode("edit");
+    setFormAccess(true);
 
     const gettingIndividualAddress = state.address.find(
       (addItem) => addItem._id === addressId
     );
-
-    console.log(gettingIndividualAddress);
 
     const { _id, name, phone, pincode, addressDetails, city, stateOfAddress } =
       gettingIndividualAddress;
@@ -102,6 +98,7 @@ export const UserProfile = () => {
     dispatch({ type: "edit-address", payload: updatedAddress });
 
     setFormMode("details");
+    setFormAccess(false);
   };
 
   const handleDeleteAddress = (itemIndex) => {
@@ -111,34 +108,43 @@ export const UserProfile = () => {
     dispatch({ type: "delete-address", payload: existingAddresses });
   };
 
+  
   return (
-    <div>
+    <div className="user-page-area">
       <Navbar></Navbar>
+      <h3 className="heading-text">My Account</h3>
       <div className="user-details">
-        <div className="tabs">
-          <p
-            className="tab-links"
-            onClick={() => setTabSelected("user-details")}
-          >
-            User Details
-          </p>
+        <div className="user-infos">
+          <div className="tabs">
+            <p
+              className="tab-links"
+              onClick={() => setTabSelected("user-details")}
+         
+            >
+              User Details
+            </p>
 
-          <div>
-            <hr />
+            <div>
+              <hr />
+            </div>
+
+            <p
+              className="tab-links"
+              onClick={handleAddressTab}
+            >
+              Addresses
+            </p>
           </div>
 
-          <p className="tab-links" onClick={handleAddressTab}>
-            Addresses
-          </p>
-        </div>
-
-        <div className="user-infos">
           {tabSelected === "user-details" && (
             <div>
-              <p>
-                Name: {firstName} {lastName}
+              <p className="current-user-details">
+                <span>Name: </span>
+                {firstName} {lastName}
               </p>
-              <p>Email : {email}</p>
+              <p className="current-user-details">
+                <span>Email: </span> {email}
+              </p>
             </div>
           )}
 
@@ -208,157 +214,20 @@ export const UserProfile = () => {
             </div>
           )}
 
-          {tabSelected === "address-details" && formMode === "Add" && (
-            <div className="form-add">
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Enter your name"
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-              />
-
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Enter your phone number"
-                onChange={(e) =>
-                  setFormData({ ...formData, phone: e.target.value })
-                }
-              />
-
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Enter your Pincode"
-                onChange={(e) =>
-                  setFormData({ ...formData, pincode: e.target.value })
-                }
-              />
-
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Enter your City"
-                onChange={(e) =>
-                  setFormData({ ...formData, city: e.target.value })
-                }
-              />
-
-              <textarea
-                name=""
-                id=""
-                cols="20"
-                rows="5"
-                placeholder="Enter your address"
-                onChange={(e) =>
-                  setFormData({ ...formData, addressDetails: e.target.value })
-                }
-              />
-
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Enter your state"
-                onChange={(e) =>
-                  setFormData({ ...formData, stateOfAddress: e.target.value })
-                }
-              />
-
-              <button
-                className="address-action-btns"
-                onClick={handleAddingAddress}
-              >
-                Add
-              </button>
-            </div>
-          )}
-
-          {tabSelected === "address-details" && formMode === "edit" && (
-            <div className="form-add">
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Enter your name"
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                value={formData.name}
-              />
-
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Enter your phone number"
-                onChange={(e) =>
-                  setFormData({ ...formData, phone: e.target.value })
-                }
-                value={formData.phone}
-              />
-
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Enter your Pincode"
-                onChange={(e) =>
-                  setFormData({ ...formData, pincode: e.target.value })
-                }
-                value={formData.pincode}
-              />
-
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Enter your City"
-                onChange={(e) =>
-                  setFormData({ ...formData, city: e.target.value })
-                }
-                value={formData.city}
-              />
-
-              <textarea
-                name=""
-                id=""
-                cols="20"
-                rows="5"
-                placeholder="Enter your address"
-                onChange={(e) =>
-                  setFormData({ ...formData, addressDetails: e.target.value })
-                }
-                value={formData.addressDetails}
-              />
-
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Enter your state"
-                onChange={(e) =>
-                  setFormData({ ...formData, stateOfAddress: e.target.value })
-                }
-                value={formData.stateOfAddress}
-              />
-
-              <button
-                className="address-action-btns"
-                onClick={() => handleUpdateAddress(formData._id)}
-              >
-                Update
-              </button>
-            </div>
+          {formAccess && tabSelected !== "user-details" && (
+            <FormData
+              tabSelected={tabSelected}
+              formMode={formMode === "add" ? "add" : "edit"}
+              handleClick={
+                formMode === "edit" ? handleUpdateAddress : handleAddingAddress
+              }
+              setFormData={setFormData}
+              formData={formData}
+            />
           )}
         </div>
       </div>
+      <FooterArea className="footer-user"></FooterArea>
     </div>
   );
 };

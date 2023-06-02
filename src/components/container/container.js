@@ -8,7 +8,9 @@ export const ContainerArea = () => {
         
         <div className='container-text'>Where <span>cinema</span> meets <span>convenience</span></div>
 
-        <p className='container-details'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        <p className='container-details'>
+        Movie shopping made simple!
+            </p>
 
         {/* <button className='container-btn'>Buy Movies</button> */}
 

@@ -132,7 +132,7 @@ export const products = [
     runtime: 152,
     subtitles: ["English", "Hindi", "Mandarin"],
     category: "Hollywood",
-    rating: 4.5
+    rating: 5
   },
 
   {

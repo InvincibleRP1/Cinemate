@@ -12,7 +12,7 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     background-color: rgb(24, 23, 23);
-    padding: 10px;
+    padding: 12px;
 }
 
 .logo {
@@ -37,6 +37,10 @@
     text-decoration: none;
 }
 
+.user-name {
+    font-size: 14px;
+}
+
 .search-bar {
     background-color: white;
     padding: 0.5rem;
@@ -45,6 +49,7 @@
     margin: 10px;
 }
 
+
 .search-area {
     background-color: white;
     border: none;
@@ -52,6 +57,39 @@
     width: 70%;
     margin: 5px;
     font-size: 16px;
+}
+
+.search-result {
+    position: absolute;
+    top: 4rem;
+    left: 20rem;
+    padding: 30px;
+    background-color: aliceblue;
+    width: 30rem;
+    height: 20rem;
+    text-align: center;
+    overflow: scroll;
+    border-radius: 7px;
+}
+
+.search-result > span {
+    float: right;
+    margin-top: -20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.search-products-list {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+    margin: 8px;
+    gap: 4rem;
+    cursor: pointer;
+}
+
+.searched-image {
+    width: 60px;
 }
 
 .logout-btn {
@@ -66,9 +104,69 @@
     color: white;
 }
 
+.cart-quantity-badge, .wishlist-quantity-badge {
+    display: inline-block;
+    background-color: aliceblue;
+    height: 22px;
+    width: 20px;
+    font-size: 14px;
+    margin-left: -25px;
+    text-align: center;
+    border-radius: 25px;
+}
+
 @media (max-width: 650px)
 {
  .search-area {
     width: 60%;
 }
+
+.navigation {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: rgb(24, 23, 23);
+    padding: 14px;
+}
+
+
+}
+
+
+@media (max-width: 880px)
+{
+    .search-result {
+        position: absolute;
+        top: 5rem;
+        left: 1rem;
+        padding: 20px;
+        background-color: rgb(240, 243, 246);
+        width: 18rem;
+        height: 20rem;
+        text-align: center;
+        overflow: scroll;
+        border-radius: 7px;
+    }
+
+    .search-products-list {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid grey;
+        margin: 8px;
+        gap: 2rem;
+        cursor: pointer;
+    }
+    
+    .logout-btn {
+        margin: 7px;
+        padding: 12px;
+        border-radius: 11px;
+        width: 4rem;
+        background-color: #c21717;
+        border: none;
+        /* background-color: white; */
+        font-size: 12px;
+        font-weight: bold;
+        color: white;
+    }
 }

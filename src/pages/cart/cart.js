@@ -53,12 +53,9 @@ export const CartPage = () => {
 
                 <div className="cart-item-details">
                   <b>{title}</b>
+              
                   <p>
-                    <b>Category: </b>
-                    {category}
-                  </p>
-                  <p>
-                    <b>Price: </b>₹ {sellingPrice} <span className="original-price">₹{price}</span>
+                    ₹ {sellingPrice} <span className="original-price">₹{price}</span>
                   </p>
                   <div className="cart-quantity-section">
                     <p>Quantity: </p>
@@ -123,7 +120,7 @@ export const CartPage = () => {
               <li>
                 <p>Delivery Charges :</p>
 
-                <p className="discounted-price">- Free Delivery!</p>
+                <p className="discounted-price">Free Delivery</p>
               </li>
 
               <hr />

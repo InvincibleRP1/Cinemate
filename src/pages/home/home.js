@@ -5,9 +5,19 @@ import { Navbar } from "../../components/navbar/navbar";
 
 import "../home/home.css";
 import { MoviesDataContext } from "../../contexts/dataContext";
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
-  const { categories } = useContext(MoviesDataContext);
+  const { categories, state, dispatch } = useContext(MoviesDataContext);
+
+  const navigate = useNavigate();
+
+  const handleCategory = (categoryName) => {
+    dispatch({type: "assign-current-category", value: categoryName});
+
+    navigate("/shelf");
+  } 
+
   return (
     <div>
       <Navbar></Navbar>
@@ -19,7 +29,9 @@ export const HomePage = () => {
             const { _id, categoryName, image, description} = category;
 
             return (
-              <li className="category-item" key={_id}>
+              <li className="category-item" key={_id}
+              onClick={() => handleCategory(categoryName)}
+              >
             <div className="category-heading">{categoryName}</div>
             <img
               src={image}

@@ -3,13 +3,11 @@ import { v4 as uuid } from "uuid";
 export const initialState = {
   products: [],
   categories: [],
-  // cart: [],
-  // wishlist: [],
   sortValue: "",
   priceValue: "",
   ratingsValue: "",
   searchedValue: "",
-  currentCategory: "",
+  currentCategories: "",
   address: [
     {
       _id: "add1",
@@ -51,14 +49,14 @@ export const moviesReducer = (state, action) => {
     case "assign-current-category":
       return {
         ...state,
-        currentCategory: [...state.currentCategory, action.value],
+        currentCategories: [...state.currentCategories, action.value],
       };
 
     //Removing unselected categories
     case "remove-current-category":
       return {
         ...state,
-        currentCategory: state.currentCategory.filter(
+        currentCategories: state.currentCategories?.filter(
           (category) => category !== action.value
         ),
       };
@@ -78,7 +76,7 @@ export const moviesReducer = (state, action) => {
         sortValue: "",
         priceValue: "",
         ratingsValue: "",
-        currentCategory: [],
+        currentCategories: [],
       };
 
     // Adding new Address

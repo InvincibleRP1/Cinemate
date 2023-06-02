@@ -18,7 +18,7 @@ export const CheckoutPage = () => {
 
     const { cartItemsDiscount, cartItemsPrice} = useContext(CartContext);
 
-    const [deliveryAddress, setDeliveryAddress] = useState(state.address[0]);
+    const [deliveryAddress, setDeliveryAddress] = useState('');
 
     const navigate = useNavigate();
 
@@ -26,7 +26,6 @@ export const CheckoutPage = () => {
         const newDeliveryAddress = state.address.find((address) => address._id === addressId);
 
         setDeliveryAddress(newDeliveryAddress);
-        
     }
 
     const handlePlacedOrder = () => {
@@ -36,8 +35,6 @@ export const CheckoutPage = () => {
 
         navigate("/")
     }
-
-    // console.log(deliveryAddress);
 
     const {
         _id,
@@ -58,7 +55,8 @@ export const CheckoutPage = () => {
 
        
             <div className="address-area">
-            <h4 className="heading-text">Saved Addresses: </h4>
+            <h4 className="heading-text">
+              <u>Saved Addresses:</u> </h4>
             {state.address.length === 0 && <p>No addresses present!</p>}
               {state?.address?.map((details, index) => {
                 const {
@@ -119,14 +117,19 @@ export const CheckoutPage = () => {
                 {
           itemsInCart.length > 0 && <div className="cart-amount-area">
           <div className="cart-total">
-            <p className="cart-price-heading">Order Summary:</p>
-            <ul>
-              <li>
-                <p> <u>Price Details: ({itemsInCart.length} items)</u> <br />
-                
-                {itemsInCart.map(({title, qty}) => (
-                    <li className="cart-list">{title} - 1 x {qty}</li>
+            <p className="cart-price-heading"><u>Order Summary:</u></p>
+
+            {itemsInCart.map(({title, qty,sellingPrice}) => (
+                    <li className="cart-list">
+                      <b>{title}</b> 
+                    
+                    <b>(₹{sellingPrice} x {qty})</b>
+                    </li>
                 ))}
+            <ul>
+              <hr />
+              <li>
+                <p> <u>Price Details: ({itemsInCart.length} items)</u>
                 </p>
 
                 <p>₹ {cartItemsPrice}</p>
@@ -141,7 +144,7 @@ export const CheckoutPage = () => {
               <li>
                 <p>Delivery Charges :</p>
 
-                <p className="discounted-price">- Free Delivery!</p>
+                <p className="discounted-price">Free Delivery</p>
               </li>
 
               <hr />

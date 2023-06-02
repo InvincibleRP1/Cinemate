@@ -1,42 +1,49 @@
+:root {
+  --primary-background: rgba(246, 246, 243, 0.5);
+}
+
 .user-details {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    padding: 2rem;
-    /* margin: 3rem; */
+    margin: 3.2rem;
+    padding: 0;
 }
 
 .tabs {
     display: flex;
-    gap: 2rem;
-    padding: 1rem;
-    box-shadow: 1px 2px 9px rgba(0,0,0,0.8);
-    background-color: azure;
+    justify-content: space-evenly;
+    gap: 1rem;
     cursor: pointer;
+    border: 0.4px solid rgb(178, 180, 183);
+    border-radius: 4px;
+    margin: -3px 2px;
 }
 
 .tab-links {
   text-decoration: none;
   color: black;
+  padding: 5px;
 }
 
 .tab-links:active {
-  box-shadow: 2px 2px 5px #2e1a0f;
+  color: #c21717;
+  text-decoration: underline;
 }
 
 
 .user-infos {
   box-shadow: 1px 2px 9px rgba(0,0,0,0.8);
-    background-color: beige;
-    padding: 3rem;
-    width: 30rem;
-    margin: -2rem 1rem;
+    background-color: var(--primary-background);
+    padding: 1rem;
+    width: 40rem;
+    margin: 1rem 1rem;
     font-size: 17px;
 }
 
-.user-infos > div > p {
+.user-infos > div > .current-user-details {
   margin: 40px;
  
 }
@@ -59,6 +66,10 @@
   font-size: 30px;
 }
 
+.current-user-details > span {
+  color: grey;
+}
+
 .address-action-btns {
   padding: 7px;
   margin: 7px;
@@ -71,8 +82,12 @@
 
 .add-new {
   background-color: rgb(65, 110, 112);
-  margin-left: 10.4rem;
   padding: 8px;
+}
+
+.form-btns {
+  width: 40%;
+  margin: auto;
 }
 
 .form-add {
@@ -85,22 +100,45 @@
 
 .form-add > input {
   padding: 1rem;
+  border-radius: 5px;
+  border: 0.4px solid rgb(174, 169, 169);
 }
 
 textarea {
   resize: none;
+  width: 28rem;
 }
+
 
 
 @media (max-width: 550px) {
   .user-infos {
     box-shadow: 1px 2px 9px rgba(0,0,0,0.8);
-      background-color: beige;
+      background-color: var(--primary-background);
       padding: 3rem;
-      width: 15rem;
-      margin: -2rem 1rem;
-      font-size: 15px;
+      width: 12rem;
+      margin: 1rem 1rem;
+      font-size: 13px;
   }
+
+  .user-infos > div > .current-user-details {
+    margin: 20px;
+   
+  }
+
+
+  .tab-links {
+    text-decoration: none;
+    color: black;
+    margin-left: 1px;
+    padding: 3px;
+  }
+
+  textarea {
+    resize: none;
+    width: 10rem;
+  }
+  
 
   .add-new {
     background-color: rgb(65, 110, 112);

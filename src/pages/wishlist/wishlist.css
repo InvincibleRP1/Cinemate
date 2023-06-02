@@ -5,6 +5,7 @@
     gap: 2rem;
     margin: 40px;
     text-align: center;
+    height: fit-content;
 }
 
 .wishlist-card > li {
@@ -17,6 +18,10 @@
     font-size: 14px;
 }
 
+.wishlist-card > li:hover {
+    background-color: #f1eeee;
+}
+
 .wishlist-image {
     width: 60%;
     object-fit: cover;
@@ -25,6 +30,7 @@
 
 .empty-wishlist-text {
     text-align: center;
+    font-size: 20px;
 }
 
 .move-to-cart-btn {

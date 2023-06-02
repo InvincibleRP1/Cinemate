@@ -56,7 +56,7 @@ export const MoviesDataHandler = ({ children }) => {
 
     if(state.searchedValue!== "")
     {
-      duplicatedProducts = duplicatedProducts.filter(({title}) => title.toLowerCase().includes(state.searchedValue.toLowerCase()))
+      duplicatedProducts = state.products.filter(({title}) => title.toLowerCase().includes(state.searchedValue?.toLowerCase()))
     }
 
    // Sorting
@@ -71,10 +71,11 @@ export const MoviesDataHandler = ({ children }) => {
 
     // Selected Categories
 
-    if(state.currentCategory.length > 0) 
+    if(state.currentCategories.length > 0) 
     {
-      duplicatedProducts = duplicatedProducts.filter(({category}) => state.currentCategory.includes(category))
+      duplicatedProducts = duplicatedProducts.filter(({category}) => state.currentCategories.includes(category))
     }
+
     
    // Ratings Value
 

@@ -1,9 +1,10 @@
-
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { Navbar } from "../../components/navbar/navbar";
-
-import "../auth/signin.css";
 import { useContext, useEffect, useState } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+
+import { Navbar } from "../../components/navbar/navbar";
+import "../auth/signin.css";
 import { AuthContext } from "../../contexts/authContext";
 
 export const SignInPage = () => {
@@ -13,6 +14,9 @@ export const SignInPage = () => {
     email: "",
     password: "",
   });
+
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -33,6 +37,10 @@ export const SignInPage = () => {
     // console.log("sign in button clicked")
   };
 
+  const passwordToggle = () => {
+    setShowPassword((prevVal) => !prevVal);
+  }
+
   useEffect(() => {
     if (token) {
       navigate(location?.state?.from?.pathname || "/shelf");
@@ -46,7 +54,9 @@ export const SignInPage = () => {
   return (
     <div className="main-container">
       <Navbar></Navbar>
+
       <div className="login-container">
+        <h2>Login</h2>
         <div className="input-area">
           <input
             type="text"
@@ -59,7 +69,7 @@ export const SignInPage = () => {
           />
 
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Enter your password"
             className="password-input"
             value={loginDetails.password}
@@ -67,6 +77,16 @@ export const SignInPage = () => {
               setLoginDetails({ ...loginDetails, password: e.target.value })
             }
           />
+
+          {showPassword ? <FontAwesomeIcon
+            icon={faEyeSlash}
+            className="password-visibility-toggle"
+            onClick={passwordToggle}
+          /> :<FontAwesomeIcon
+            icon={faEye}
+            className="password-visibility-toggle"
+            onClick={passwordToggle}
+          />}
         </div>
 
         <div className="signin-buttons">
@@ -78,7 +98,9 @@ export const SignInPage = () => {
           </button>
         </div>
 
-        <NavLink to="/signup">Create new account</NavLink>
+        <NavLink className="account-navigate" to="/signup">
+          Create new account
+        </NavLink>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+
 
 .shelf-container {
     display: flex;
@@ -10,16 +10,20 @@
 .filter-area {
     display: flex;
     flex-direction: column;
-    background-color: #6c303b;
-    font-family: 'Sarabun', sans-serif;
+    background-color: #643737;
     font-size: 14px;
-    font-weight: 570;
+    font-weight: 500;
+    font-family: 'Wix Madefor Text', sans-serif;
     color: white;
     width: 250px;
     height: 100%;
     padding: 1rem;
     position: fixed;
     left: 0;
+}
+
+.filter-icon {
+    display: none;
 }
 
 .filter-heading, .prices {
@@ -41,13 +45,13 @@
     gap: 0.2rem;
 }
 
-.prices {
+.prices, .ratings {
     display: flex;
     justify-content: space-around;
 }
 
 
-.categories, .ratings, .sorting {
+.categories, .sorting {
     display: flex;
     flex-direction: column;
     padding: 3px;
@@ -81,6 +85,11 @@
     height: 88%;
     
 }
+
+.product-item:hover {
+   background-color: #f1eeee;
+}
+
 
 .product-heading {
     font-size: small;
@@ -121,6 +130,12 @@
     font-size: 20px;
     cursor: pointer;
 }
+
+.rating-sign-icon {
+    color: goldenrod;
+    font-size: 15px;
+}
+
 
 .remove-from-wishlist-btn {
     color: rgb(226, 55, 55);
@@ -169,6 +184,15 @@ input[type='checkbox'] {
 
 @media (max-width: 650px) 
 {
+
+    .filter-icon {
+        display: block;
+        margin: 10px 20px;
+        color: grey;
+        float: right;
+    }
+
+
     .filter-area {
         background-color: #6c303b;
         color: white;
@@ -179,7 +203,7 @@ input[type='checkbox'] {
         font-size: 12px;
     }
 
-    .categories, .ratings, .sorting {
+    .categories, .sorting {
         display: flex;
         flex-direction: column;
         padding: 0px;
@@ -190,14 +214,14 @@ input[type='checkbox'] {
 
     .products-showcase {
         /* display: flex; */
-        margin-left: 8rem;
+        margin-left: 0rem;
      
      }
 
      .product-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 3.5rem;
+        gap: 2rem;
     }
 
      .product-item {

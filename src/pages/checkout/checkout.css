@@ -1,10 +1,15 @@
+:root {
+    --primary-background: rgba(233, 233, 221, 0.5);
+  }
+
 .heading-text {
     text-align: center;
 }
 
 .checkout-area {
     display: flex;
-    gap: 25rem;
+    justify-content: space-evenly;
+    gap: 15rem;
     height: fit-content;
 }
 
@@ -12,7 +17,7 @@
     display: flex;
     gap: 1rem;
     margin-bottom: 25px;
-    width: 25rem;
+    width: 26rem;
     font-size: 15px;
     border-bottom: 1px solid grey;
 }
@@ -20,7 +25,7 @@
 .address-area {
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 248, 217);
+    background-color: var(--primary-background);
     box-shadow: 1px 2px 7px rgba(140, 136, 136, 0.8);
     margin-left: 4rem;
     height: fit-content;
@@ -54,6 +59,10 @@
 
 .cart-list {
     list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-left: 20px;
 }
 
 .address-btn {
@@ -62,6 +71,11 @@
     width: 8rem;
     color: white;
     font-size: 15px;
+}
+
+input[type="radio"] {
+    margin-top: -8rem;
+    margin-left: 2rem;
 }
 
 @media (max-width: 1400px) {
@@ -76,7 +90,7 @@
     .address-area {
         display: flex;
         flex-direction: column;
-        background-color: rgb(255, 248, 217);
+        background-color: var(--primary-background);
         box-shadow: 1px 2px 7px rgba(140, 136, 136, 0.8);
         margin-left: 3rem;
         height: fit-content;
@@ -86,7 +100,7 @@
         display: flex;
         gap: 1rem;
         margin-bottom: 25px;
-        width: 5rem;
+        width: 10rem;
         font-size: 13px;
         border-bottom: 1px solid grey;
     }

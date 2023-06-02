@@ -1,11 +1,5 @@
-import { NavLink, useParams } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faStar,
-  faTruck,
-  faCreditCard,
-  faFilm,
-} from "@fortawesome/free-solid-svg-icons";
+import { useParams } from "react-router-dom";
+
 
 import { Navbar } from "../../components/navbar/navbar";
 import { useContext } from "react";
@@ -15,6 +9,7 @@ import "../productDetails/product.css";
 import { CartContext } from "../../contexts/cartContext";
 import { WishlistContext } from "../../contexts/wishlistContext";
 import { AuthContext } from "../../contexts/authContext";
+import { ProductDelivery } from "./productDelivery";
 
 export const ProductPage = () => {
   const { token } = useContext(AuthContext);
@@ -48,11 +43,12 @@ export const ProductPage = () => {
             genre,
             image,
             price,
+            sellingPrice,
             releaseYear,
             rating,
             title,
             runtime,
-            subtitles
+            subtitles,
           } = product;
 
           const isAddedToCart = itemExistsInCart(product);
@@ -113,94 +109,21 @@ export const ProductPage = () => {
                     <li className="subs"> {subtitle} </li>
                   ))}
                 </ul>
-
               </div>
 
               <div className="delivery-section">
-                <p>
-                  {" "}
-                  <span>Price: ₹</span>
-                  {price}
-                </p>
-
-                <p>
-                  <span>Delivery within: </span> {deliveryTime} days
-                </p>
-
-                <p>
-                  {" "}
-                  <span> Rating: </span>
-                  {rating}
-                  <FontAwesomeIcon icon={faStar} id="star-icon" />
-                </p>
-
-                <hr />
-
-                <p className="delivery-details">
-                  {" "}
-                  <span>
-                    {" "}
-                    <FontAwesomeIcon
-                      icon={faTruck}
-                      className="delivery-icons"
-                    />{" "}
-                  </span>
-                  Fast Delivery
-                </p>
-
-                <p className="delivery-details">
-                  {" "}
-                  <span>
-                    {" "}
-                    <FontAwesomeIcon
-                      icon={faCreditCard}
-                      className="delivery-icons"
-                    />{" "}
-                  </span>
-                  Pay On Delivery
-                </p>
-
-                <p className="delivery-details">
-                  {" "}
-                  <span>
-                    {" "}
-                    <FontAwesomeIcon
-                      icon={faFilm}
-                      className="delivery-icons"
-                    />{" "}
-                  </span>
-                  Best Quality Cinema
-                </p>
-
-                <hr />
-
-                <div style={{ display: token ? "" : "none" }}>
-                  {isAddedToCart ? (
-                    <NavLink className="delivery-btns route-btn" to="/cart">
-                      Go To Cart
-                    </NavLink>
-                  ) : (
-                    <button
-                      className="delivery-btns"
-                      onClick={() => handleAddToCart(product)}
-                    >
-                      Add To Cart
-                    </button>
-                  )}
-
-                  {isPresentInWishlist ? (
-                    <NavLink to="/wishlist" className="delivery-btns route-btn">
-                      Go to Wishlist
-                    </NavLink>
-                  ) : (
-                    <button
-                      className="delivery-btns"
-                      onClick={() => handleAddToWishlist(product)}
-                    >
-                      Add To Wishlist
-                    </button>
-                  )}
-                </div>
+                <ProductDelivery 
+                isAddedToCart={isAddedToCart}
+                isPresentInWishlist={isPresentInWishlist}
+                deliveryTime={deliveryTime}
+                token={token}
+                price={price}
+                sellingPrice={sellingPrice}
+                rating={rating}
+                product={product}
+                handleAddToCart={handleAddToCart}
+                handleAddToWishlist={handleAddToWishlist}
+                />
               </div>
             </div>
           );

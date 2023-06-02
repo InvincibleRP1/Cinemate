@@ -1,14 +1,12 @@
 import { useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faStar } from "@fortawesome/free-solid-svg-icons";
+
 
 import { Navbar } from "../../components/navbar/navbar";
 import { AuthContext } from "../../contexts/authContext";
 import "../wishlist/wishlist.css";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../../contexts/cartContext";
-import { NavLink } from "react-router-dom";
 import { WishlistContext } from "../../contexts/wishlistContext";
 
 export const WishlistPage = () => {
@@ -47,13 +45,15 @@ export const WishlistPage = () => {
                 <img src={image} alt={title} className="wishlist-image" />
                 <h3>{title}</h3>
                 <p>
-                  Category: <span>{category}</span>
+                  <span style={{color: "maroon"}}>{category}</span>
                 </p>
                 <p>
-                  Price: <span>₹ {sellingPrice}</span> <span className="original-price">₹ {price}</span>
+                  <span>₹ {sellingPrice}</span> <span className="original-price">₹ {price}</span>
                 </p>
                 <p>
-                  Rating: <span>{rating}</span>
+                  <span>{rating}{" "}
+                  <FontAwesomeIcon icon={faStar} className="rating-sign-icon"/>
+                  </span>
                 </p>
 
                 <div className="wishlist-btn-area">
@@ -75,6 +75,7 @@ export const WishlistPage = () => {
           })}
         </ul>
       </div>
+     
     </div>
   );
 };
