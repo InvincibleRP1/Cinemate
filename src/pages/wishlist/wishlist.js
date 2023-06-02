@@ -8,6 +8,7 @@ import { AuthContext } from "../../contexts/authContext";
 import "../wishlist/wishlist.css";
 import { CartContext } from "../../contexts/cartContext";
 import { WishlistContext } from "../../contexts/wishlistContext";
+import { useNavigate } from "react-router-dom";
 
 export const WishlistPage = () => {
   const { currentUser, token } = useContext(AuthContext);
@@ -19,6 +20,13 @@ export const WishlistPage = () => {
 
   const WishlistData = currentUser?.wishlist;
 
+  const navigate = useNavigate();
+
+  const seeProductDetail = (productId) => {
+    navigate(`/shelf/${productId}`);
+  }
+
+
   return (
     <div>
       <Navbar></Navbar>
@@ -28,11 +36,9 @@ export const WishlistPage = () => {
         )}
         <ul className="wishlist-card">
           {WishlistData?.map((product) => {
-            const { title, image, category, price, sellingPrice, rating } = product;
+            const { _id, title, image, category, price, sellingPrice, rating } = product;
 
             const isInCart = itemExistsInCart(product);
-
-            console.log(isInCart)
 
             return (
               <li key={title}>
@@ -42,7 +48,9 @@ export const WishlistPage = () => {
                   onClick={() => handleDeleteFromWishlist(product)}
                 />
 
-                <img src={image} alt={title} className="wishlist-image" />
+                <img src={image} alt={title} className="wishlist-image"
+                onClick={() => seeProductDetail(_id)}
+                />
                 <h3>{title}</h3>
                 <p>
                   <span style={{color: "maroon"}}>{category}</span>

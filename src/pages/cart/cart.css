@@ -30,6 +30,7 @@
     width: 130px;
     height: fit-content;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .cart-item-details {

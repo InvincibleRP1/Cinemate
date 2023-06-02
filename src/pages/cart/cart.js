@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 import { AuthContext } from "../../contexts/authContext";
@@ -16,12 +16,12 @@ import { WishlistContext } from "../../contexts/wishlistContext";
 export const CartPage = () => {
   const { currentUser } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const { cartItemsPrice, removeFromCart, handleCartQuantity, cartItemsDiscount } =
     useContext(CartContext);
 
   const { isAddedToWishlist, handleAddToWishlist } = useContext(WishlistContext);
-
-  //   const { state } = useContext(MoviesDataContext);
 
   const itemsInCart = currentUser?.cart;
 
@@ -32,6 +32,10 @@ export const CartPage = () => {
     {
       handleAddToWishlist(product);
     }
+  }
+
+  const seeProductDetail = (productId) => {
+    navigate(`/shelf/${productId}`);
   }
 
   return (
@@ -49,7 +53,9 @@ export const CartPage = () => {
 
             return (
               <div className="cart-items" key={_id}>
-                <img src={image} alt={title} className="cart-item-image" />
+                <img src={image} alt={title} className="cart-item-image"
+                onClick={() => seeProductDetail(_id)}
+                />
 
                 <div className="cart-item-details">
                   <b>{title}</b>
