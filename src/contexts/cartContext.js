@@ -3,10 +3,8 @@ import { createContext, useContext } from "react";
 import { toast } from "react-toastify";
 
 import { AuthContext } from "./authContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-
-// import { MoviesDataContext } from "./dataContext";
 
 export const CartContext = createContext("");
 
@@ -14,8 +12,8 @@ export const CartHandler = ({ children }) => {
   const { currentUser, token, setCurrentUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // const { state, dispatch } = useContext(MoviesDataContext);
 
   const itemExistsInCart = (product) => {
     return currentUser?.cart.some(
@@ -99,8 +97,11 @@ export const CartHandler = ({ children }) => {
           body: JSON.stringify({ action: { type: task === "INC" ?"increment" : "decrement"} }),
         });
 
+        if(location.pathname !== "/cart")
+        {
+          toast.success("Quantity of the item increased in Cart!");
+        }
         
-        toast.success("Quantity of the item changed in Cart!");
 
         const { cart } = await res.json();
 
