@@ -2,6 +2,8 @@
 
 An e-commerce web app for Movies.
 
+Checkout the Web App here - [Cinemate](https://cinemate-theta.vercel.app/)
+
 ## How to install and run locally ?
 
 ```
