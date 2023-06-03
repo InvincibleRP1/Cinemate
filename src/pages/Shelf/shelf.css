@@ -188,8 +188,13 @@ input[type='checkbox'] {
     .filter-icon {
         display: block;
         margin: 10px 20px;
-        color: grey;
+        color: white;
+        font-weight: bold;
         float: right;
+        border: none;
+        padding: 3px;
+        border-radius: 5px;
+        background-color: #be5568;
     }
 
 
@@ -198,7 +203,7 @@ input[type='checkbox'] {
         color: white;
         width: 110px;
         position: fixed;
-        top: 15rem;
+        top: 20rem;
         bottom: 0;
         font-size: 12px;
     }

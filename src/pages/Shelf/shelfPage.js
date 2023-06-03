@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faStar, faFilter } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 
 import { Navbar } from "../../components/navbar/navbar";
 import "../Shelf/shelf.css";
@@ -56,9 +56,9 @@ export const ShelfPage = () => {
 
 
   
-            <FontAwesomeIcon icon={faFilter} className="filter-icon"
+            <button className="filter-icon"
           onClick={() => setShowFilters((val) => !val)}
-          />
+          >{showFilters ? "Hide Filters" : "Show Filters"}</button>
         
 
             <p>Showing All Products: {filteredProducts.length}</p>
