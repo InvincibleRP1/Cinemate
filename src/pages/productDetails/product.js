@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 
-
 import { Navbar } from "../../components/navbar/navbar";
 import { useContext } from "react";
 import { MoviesDataContext } from "../../contexts/dataContext";
@@ -112,17 +111,17 @@ export const ProductPage = () => {
               </div>
 
               <div className="delivery-section">
-                <ProductDelivery 
-                isAddedToCart={isAddedToCart}
-                isPresentInWishlist={isPresentInWishlist}
-                deliveryTime={deliveryTime}
-                token={token}
-                price={price}
-                sellingPrice={sellingPrice}
-                rating={rating}
-                product={product}
-                handleAddToCart={handleAddToCart}
-                handleAddToWishlist={handleAddToWishlist}
+                <ProductDelivery
+                  isAddedToCart={isAddedToCart}
+                  isPresentInWishlist={isPresentInWishlist}
+                  deliveryTime={deliveryTime}
+                  token={token}
+                  price={price}
+                  sellingPrice={sellingPrice}
+                  rating={rating}
+                  product={product}
+                  handleAddToCart={handleAddToCart}
+                  handleAddToWishlist={handleAddToWishlist}
                 />
               </div>
             </div>

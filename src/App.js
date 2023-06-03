@@ -15,6 +15,7 @@ import { ProductPage } from "./pages/productDetails/product";
 import { PrivateRoute } from "./components/privateRoute/privateRoute";
 import { UserProfile } from "./pages/userProfile/user";
 import { CheckoutPage } from "./pages/checkout/checkout";
+import { NoPageFound } from "./pages/pageNotFound/noPageFound";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<NoPageFound />} />
+
         <Route path="/shelf" element={<ShelfPage />} />
         <Route path="/test" element={<APITest />} />
         <Route path="/signin" element={<SignInPage />} />

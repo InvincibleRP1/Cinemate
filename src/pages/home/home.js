@@ -1,14 +1,15 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { ContainerArea } from "../../components/container/container";
 import { FooterArea } from "../../components/footer/footer";
 import { Navbar } from "../../components/navbar/navbar";
-
 import "../home/home.css";
 import { MoviesDataContext } from "../../contexts/dataContext";
-import { useNavigate } from "react-router-dom";
+
 
 export const HomePage = () => {
-  const { categories, state, dispatch } = useContext(MoviesDataContext);
+  const { categories, dispatch } = useContext(MoviesDataContext);
 
   const navigate = useNavigate();
 

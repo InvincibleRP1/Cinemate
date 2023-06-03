@@ -15,6 +15,7 @@
     padding: 12px;
 }
 
+
 .logo {
     display: flex;
     justify-content: center;
@@ -117,16 +118,22 @@
 
 @media (max-width: 650px)
 {
+
+.search-bar {
+    width: 20rem;
+}
  .search-area {
     width: 60%;
+    
 }
 
 .navigation {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: space-between;
     flex-wrap: wrap;
     background-color: rgb(24, 23, 23);
-    padding: 14px;
+    width: fit-content;
 }
 
 
@@ -137,7 +144,7 @@
 {
     .search-result {
         position: absolute;
-        top: 5rem;
+        top: 8rem;
         left: 1rem;
         padding: 20px;
         background-color: rgb(240, 243, 246);
@@ -168,5 +175,13 @@
         font-size: 12px;
         font-weight: bold;
         color: white;
+    }
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        background-color: rgb(24, 23, 23);
+        width: 100%;
     }
 }

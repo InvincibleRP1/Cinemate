@@ -4,11 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 
-
 import { Navbar } from "../../components/navbar/navbar";
 import "../auth/signin.css";
 import { AuthContext } from "../../contexts/authContext";
-
 
 export const SignUpPage = () => {
   const { handleSignUp, token } = useContext(AuthContext);
@@ -23,12 +21,12 @@ export const SignUpPage = () => {
     lastName: "",
     email: "",
     password: "",
-    confirmedPassword: ""
+    confirmedPassword: "",
   });
 
-
   const handleSigningUp = () => {
-    const { firstName, lastName, email, password, confirmedPassword } = signupDetails;
+    const { firstName, lastName, email, password, confirmedPassword } =
+      signupDetails;
     if (
       firstName !== "" &&
       lastName !== "" &&
@@ -36,26 +34,17 @@ export const SignUpPage = () => {
       password !== "" &&
       confirmedPassword !== ""
     ) {
-
-      if(password === confirmedPassword && email.includes("@"))
-      {
+      if (password === confirmedPassword && email.includes("@")) {
         handleSignUp(firstName, lastName, email, password);
-      }
-      else if(!email.includes("@")){
+      } else if (!email.includes("@")) {
         toast.error("Invalid Email!");
-      }
-      else if(password!==confirmedPassword)
-      {
+      } else if (password !== confirmedPassword) {
         toast.error("Passwords don't match!");
       }
-      
-    }
-    else {
-      toast.error("Fields cannot be empty!")
+    } else {
+      toast.error("Fields cannot be empty!");
     }
   };
-
- 
 
   useEffect(() => {
     if (token) {
@@ -105,26 +94,45 @@ export const SignUpPage = () => {
             }
           />
 
-          {showPassword ? <FontAwesomeIcon className="password-hide-toggle" icon={faEyeSlash}
-          onClick={() => setShowPassword((val) => !val)}
-          /> : <FontAwesomeIcon className="password-hide-toggle" icon={faEye}
-          onClick={() => setShowPassword((val) => !val)}
-          />}
+          {showPassword ? (
+            <FontAwesomeIcon
+              className="password-hide-toggle"
+              icon={faEyeSlash}
+              onClick={() => setShowPassword((val) => !val)}
+            />
+          ) : (
+            <FontAwesomeIcon
+              className="password-hide-toggle"
+              icon={faEye}
+              onClick={() => setShowPassword((val) => !val)}
+            />
+          )}
 
           <input
             type={showPassword ? "text" : "password"}
             placeholder=" Confirm password"
             className="password-input"
             onChange={(e) =>
-              setSignupDetails({ ...signupDetails, confirmedPassword: e.target.value })
+              setSignupDetails({
+                ...signupDetails,
+                confirmedPassword: e.target.value,
+              })
             }
           />
 
-      {showPassword ? <FontAwesomeIcon className="password-hide-toggle-confirm" icon={faEyeSlash}
-      onClick={() => setShowPassword((val) => !val)}
-      /> : <FontAwesomeIcon className="password-hide-toggle-confirm" icon={faEye}
-      onClick={() => setShowPassword((val) => !val)}
-      />}
+          {showPassword ? (
+            <FontAwesomeIcon
+              className="password-hide-toggle-confirm"
+              icon={faEyeSlash}
+              onClick={() => setShowPassword((val) => !val)}
+            />
+          ) : (
+            <FontAwesomeIcon
+              className="password-hide-toggle-confirm"
+              icon={faEye}
+              onClick={() => setShowPassword((val) => !val)}
+            />
+          )}
         </div>
 
         <div className="signin-buttons">

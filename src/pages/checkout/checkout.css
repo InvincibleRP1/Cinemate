@@ -52,6 +52,11 @@
     text-decoration: none;
     text-align: center;
 }
+
+.address-btn:hover {
+    background-color: rgb(108, 21, 21);
+}
+
 .order-summary-area {
     height: fit-content;
     margin-top: -40px;

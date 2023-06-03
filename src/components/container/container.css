@@ -19,6 +19,7 @@
 }
 .container-text {
     color: aliceblue;
+    text-align: center;
     font-size: 43px;
     margin-top: 40px;
 }
@@ -30,6 +31,8 @@
 
 .container-details {
     color: white;
+    font-size: 15px;
+    font-weight: lighter;
 }
 
 .container-image {

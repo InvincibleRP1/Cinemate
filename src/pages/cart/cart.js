@@ -1,17 +1,13 @@
 import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-
-
-import { AuthContext } from "../../contexts/authContext";
-import { Navbar } from "../../components/navbar/navbar";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
+import { AuthContext } from "../../contexts/authContext";
+import { Navbar } from "../../components/navbar/navbar";
 import "../cart/cart.css";
 import { CartContext } from "../../contexts/cartContext";
 import { WishlistContext } from "../../contexts/wishlistContext";
-// import { MoviesDataContext } from "../../contexts/dataContext";
 
 export const CartPage = () => {
   const { currentUser } = useContext(AuthContext);
@@ -43,7 +39,14 @@ export const CartPage = () => {
       <Navbar></Navbar>
       <p className="cart-heading">My Cart ({itemsInCart?.length})</p>
 
-      {itemsInCart.length === 0 && <p className="cart-heading">No items in cart</p>}
+      {itemsInCart.length === 0 && 
+      <div>
+        <p className="cart-heading">No items in cart</p>
+      <img src="https://ik.imagekit.io/qsdtqu5hp/95f54e2fc2a83d5cd7bb9b3efc26dae2.jpg?updatedAt=1685786879525" alt="" className="empty-cart-img"/>
+      </div>
+      
+      }
+
       <div className="cart-container">
         <div className="cart-card">
           {itemsInCart?.map((product) => {

@@ -25,7 +25,6 @@ export const SignInPage = () => {
     if (loginDetails.email && loginDetails.password !== "") {
       handleSignIn(loginDetails.email, loginDetails.password);
     }
-    // console.log("sign in button clicked")
   };
 
   const handleTestLogin = () => {
@@ -34,7 +33,6 @@ export const SignInPage = () => {
       email: "rahulpandey@gmail.com",
       password: "noice123",
     }));
-    // console.log("sign in button clicked")
   };
 
   const passwordToggle = () => {

@@ -12,6 +12,12 @@
     font-weight: 800;
 }
 
+.footer-items > h3 {
+    text-align: center;
+    color: grey;
+    font-weight: 800;
+}
+
 .footer-resources, .social-links {
     display: flex;
     flex-direction: row;
@@ -21,9 +27,13 @@
     list-style: none;
     cursor: pointer;
 }
-
+.footer-resource-names {
+    color: aliceblue;
+    text-decoration: none;
+}
 .social-links-names {
     font-size: 25px;
+    color: aliceblue;
 }
 
 .copyright {
