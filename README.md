@@ -4,7 +4,12 @@ An e-commerce web app for Movies.
 
 ## How to install and run locally ?
 
-
+```
+$ git clone https://github.com/InvincibleRP1/Cinemate.git
+$ cd Cinemate
+$ npm install
+$ npm start
+```
 
 ## Home Page
 
