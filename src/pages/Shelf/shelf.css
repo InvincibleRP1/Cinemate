@@ -104,11 +104,6 @@
     cursor: pointer;
 }
 
-.loading-sign {
-    margin: auto;
-    margin-top: 20px;
-}
-
 .products-showcase > p {
     text-align: left;
     margin-left: 40px;
